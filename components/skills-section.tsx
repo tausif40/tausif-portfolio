@@ -69,7 +69,7 @@ export function SkillsSection() {
   }
 
   return (
-    <section className="pt-24 pb-20 px-4 relative overflow-hidden bg-gradient-to-br from-background via-slate-50/50 to-background dark:via-slate-900/50">
+    <section className="pt-20 pb-16 px-4 relative overflow-hidden bg-gradient-to-br from-background via-slate-50/50 to-background dark:via-slate-900/50">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-purple-400/20 via-pink-400/20 to-red-400/20 rounded-full blur-3xl animate-float">
@@ -101,7 +101,7 @@ export function SkillsSection() {
       <div className="container mx-auto relative z-10">
         {/* Header */}
         {/* ${isVisible ? "animate-bounce-in" : "opacity-0"} */}
-        <div className={`text-center mb-14`}>
+        <div className={`text-center mb-16`}>
           <Badge variant="secondary" className="mb-6 glass-morphism text-lg px-6 py-3 neon-border">
             <Sparkles className="w-4 h-4 mr-2 animate-pulse" />
             <span className="rainbow-text font-bold">Tech Arsenal</span>
@@ -124,7 +124,7 @@ export function SkillsSection() {
         </div>
 
         {/* Central Tech Hub */}
-        <div
+        {/* <div
           className={`flex justify-center mb-14`}
           style={{ animationDelay: "0.5s" }}
         >
@@ -139,7 +139,6 @@ export function SkillsSection() {
             </div>
             <div className="absolute -inset-8 bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-red-600/20 rounded-full blur-2xl animate-pulse"></div>
 
-            {/* Orbiting Elements */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
               {[0, 1, 2].map((i) => (
                 <div
@@ -162,7 +161,7 @@ export function SkillsSection() {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Category Filter */}
         <div
@@ -171,7 +170,7 @@ export function SkillsSection() {
         >
 
           {/* Skills Constellation */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
             {skills.map((skill, index) => {
               const gradientColor = getSkillColor(skill.name, index)
               const Icon = skill.icon;

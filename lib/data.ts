@@ -25,7 +25,7 @@ export const portfolioData = {
 		email: "tausif6040@gmail.com",
 		phone: "+91 8804236040",
 		location: "Indore, MP, India",
-		avatar: "/placeholder.svg?height=400&width=400",
+		avatar: "/img/hero-img.jpg",
 		resume: "/resume.pdf",
 		bio: "Frontend developer with 1+ years of experience building scalable web applications. I specialize in React.js and Next.js, with a keen eye for user experience and performance optimization. Always write clean and maintainable code.",
 		social: {
@@ -191,35 +191,7 @@ export const portfolioData = {
 			description: "500+ contributions to open source projects"
 		}
 	],
-	blog: [
-		{
-			title: "Building Scalable React Applications",
-			excerpt:
-				"Learn how to structure React apps for maximum scalability and maintainability",
-			date: "2024-01-15",
-			readTime: "8 min read",
-			tags: ["React", "Architecture", "Best Practices"],
-			image: "/placeholder.svg?height=200&width=300"
-		},
-		{
-			title: "The Future of Web Development",
-			excerpt:
-				"Exploring upcoming trends and technologies that will shape web development",
-			date: "2024-01-10",
-			readTime: "6 min read",
-			tags: ["Web Development", "Trends", "Technology"],
-			image: "/placeholder.svg?height=200&width=300"
-		},
-		{
-			title: "Optimizing Next.js Performance",
-			excerpt:
-				"Advanced techniques to make your Next.js applications lightning fast",
-			date: "2024-01-05",
-			readTime: "10 min read",
-			tags: ["Next.js", "Performance", "Optimization"],
-			image: "/placeholder.svg?height=200&width=300"
-		}
-	],
+
 	projects: [
 		{
 			id: 1,
@@ -279,6 +251,25 @@ export const portfolioData = {
 			image: "/projects/auroTerra.png",
 			technologies: ["HTML", "CSS", "Javascript", "JQuery", "Bootstrap"],
 			liveUrl: "https://blog-cms-demo.vercel.app",
+			githubUrl: "https://github.com/tausif40",
+			featured: false
+		},
+		{
+			id: 5,
+			title: "My Portfolio",
+			subTitle: "Personal Portfolio Website",
+			description:
+				"This portfolio showcases of my skills in advanced UI/UX design, animations, and performance-optimized web development.",
+			image: "/projects/portfolio.png",
+			technologies: [
+				"HTML",
+				"CSS",
+				"Javascript",
+				"NEXT",
+				"shadcn UI",
+				"Tailwind CSS"
+			],
+			liveUrl: "https://tausif.info",
 			githubUrl: "https://github.com/tausif40",
 			featured: false
 		},

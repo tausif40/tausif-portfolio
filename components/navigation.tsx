@@ -10,6 +10,8 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const [scrolled, setScrolled] = useState(false)
+  const [lastScrollY, setLastScrollY] = useState(0)
+  const [showNav, setShowNav] = useState(true)
 
   const navItems = [
     { href: "#home", label: "Home" },
@@ -24,6 +26,14 @@ export function Navigation() {
     const handleScroll = () => {
       const scrollPosition = window.scrollY
       setScrolled(scrollPosition > 50)
+
+      // Show/hide nav based on scroll direction
+      if (scrollPosition > lastScrollY && scrollPosition > 100) {
+        setShowNav(false) // Scrolling down
+      } else {
+        setShowNav(true) // Scrolling up
+      }
+      setLastScrollY(scrollPosition)
 
       const sections = navItems.map((item) => item.href.substring(1))
       const scrollPositionForSections = scrollPosition + 100
@@ -44,7 +54,7 @@ export function Navigation() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [lastScrollY])
 
   const scrollToSection = (href: string) => {
     const element = document.getElementById(href.substring(1))
@@ -56,7 +66,8 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "nav-blur shadow-2xl" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 transform ${showNav ? "translate-y-0" : "-translate-y-full"
+        } ${scrolled ? "nav-blur shadow-2xl" : "bg-transparent backdrop-blur-md md:backdrop-blur-none"
         }`}
     >
       <div className="container mx-auto">
@@ -65,11 +76,11 @@ export function Navigation() {
             <div className="p-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 group-hover:from-blue-700 group-hover:to-purple-700 transition-all duration-300 group-hover:scale-110">
               <Code2 className="h-5 w-5 text-white" />
             </div>
-            <span className="gradient-text">Tausif</span>
+            <span className="text-foreground">Tausif</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <button
                 key={item.href}
@@ -104,11 +115,8 @@ export function Navigation() {
         </div>
 
         {/* Mobile Menu */}
-        <div
-          className={`md:hidden transition-all duration-500 overflow-hidden ${isOpen ? "max-h-96 py-4 border-t glass-effect" : "max-h-0"
-            }`}
-        >
-          <div className="flex flex-col space-y-2">
+        <div className={`md:hidden transition-all duration-500 overflow-hidden ${isOpen ? "max-h-96 py-4 border-t border-border/50" : "max-h-0"}`}>
+          <div className="flex flex-col space-y-2 backdrop-blur-md rounded-lg p-2 bg-black/30">
             {navItems.map((item, index) => (
               <button
                 key={item.href}

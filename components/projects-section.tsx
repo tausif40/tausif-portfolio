@@ -3,19 +3,30 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github, Star, Eye, Rocket, Code2, Play, Zap } from "lucide-react"
+import { ExternalLink, Github, Star, Eye, Rocket, Code2, Play, Zap, MoveLeft, MoveRight, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { portfolioData } from "@/lib/data"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 export function ProjectsSection() {
   const { projects } = portfolioData
+  const swiperRef = useRef(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
   const featuredProjects = projects.filter((project) => project.featured)
   const otherProjects = projects.filter((project) => !project.featured)
   const [isVisible, setIsVisible] = useState(false)
   const [activeProject, setActiveProject] = useState(0)
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
+  const [thumbnailIndex, setThumbnailIndex] = useState(0)
+  const thumbnailsRef = useRef<HTMLDivElement>(null)
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,10 +52,67 @@ export function ProjectsSection() {
     return () => clearInterval(interval)
   }, [featuredProjects.length])
 
+  const handleSlideChange = () => {
+    const swiper = swiperRef.current;
+    if (!swiper) return;
+
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  };
+
+
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > 50
+    const isRightSwipe = distance < -50
+
+    if (isLeftSwipe) {
+      nextProject()
+    }
+    if (isRightSwipe) {
+      prevProject()
+    }
+  }
+
+  const nextProject = () => {
+    setActiveProject((prev) => (prev + 1) % featuredProjects.length)
+  }
+
+  const prevProject = () => {
+    setActiveProject((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length)
+  }
+
+  // Thumbnail navigation
+  const nextThumbnail = () => {
+    const maxIndex = Math.max(0, featuredProjects.length - 3)
+    setThumbnailIndex((prev) => Math.min(prev + 1, maxIndex))
+  }
+
+  const prevThumbnail = () => {
+    setThumbnailIndex((prev) => Math.max(prev - 1, 0))
+  }
+
+  const visibleProjects = otherProjects.slice(0, 6)
+
+
+
   return (
     <section
       id="projects"
-      className="py-24 px-4 bg-gradient-to-br from-background via-purple-50/20 to-background dark:via-purple-950/20 relative overflow-hidden"
+      className="py-24 md:px-4 bg-gradient-to-br from-background via-purple-50/20 to-background dark:via-purple-950/20 relative overflow-hidden"
     >
       {/* Dynamic Background */}
       <div className="absolute inset-0">
@@ -103,7 +171,12 @@ export function ProjectsSection() {
             style={{ animationDelay: "0.3s" }}
           >
             {/* Main Featured Project Display */}
-            <div className="relative h-[600px] rounded-3xl overflow-hidden glass-morphism border-0 shadow-2xl">
+            <div
+              className="relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden glass-morphism border-0 shadow-2xl"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               {featuredProjects.map((project, index) => (
                 <div
                   key={project.id}
@@ -118,41 +191,42 @@ export function ProjectsSection() {
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/80 to-transparent" />
                   </div>
 
                   {/* Content Overlay */}
-                  <div className="absolute inset-0 flex items-end p-12">
+                  <div className="absolute inset-0 flex items-end md:p-12">
                     <div className="max-w-2xl">
-                      <Badge className="mb-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white border-0 animate-pulse text-lg px-4 py-2">
-                        <Star className="w-4 h-4 mr-2 fill-current" />
-                        Featured Project
-                      </Badge>
+                      <div className="p-4">
+                        <Badge className="mb-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white border-0 animate-pulse text-sm md:text-lg px-3 md:px-4 py-1 md:py-2">
+                          <Star className="w-3 h-3 md:w-4 md:h-4 mr-2 fill-current" />
+                          Featured Project
+                        </Badge>
 
-                      <h3 className="text-4xl md:text-5xl font-black text-white mb-2">{project.title}</h3>
-                      <p className="text-sm mb-4 text-gray-100">({project.subTitle})</p>
-                      <p className="text-xl text-gray-200 mb-6 leading-relaxed">{project.description}</p>
+                        <h3 className="text-2xl md:text-4xl lg:text-5xl font-semibold font-black text-white mb-4">{project.title}</h3>
+                        <p className="text-base md:text-xl text-gray-200 mb-6 leading-relaxed">{project.description}</p>
 
-                      <div className="flex flex-wrap gap-3 mb-8">
-                        {project.technologies.map((tech, techIndex) => (
-                          <Badge
-                            key={techIndex}
-                            variant="secondary"
-                            className="glass-morphism text-white border-white/20 text-sm px-3 py-1"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
+                        <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
+                          {project.technologies.map((tech, techIndex) => (
+                            <Badge
+                              key={techIndex}
+                              variant="secondary"
+                              className="glass-morphism text-white border-white/20 text-xs md:text-sm px-2 md:px-3 py-1"
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
                       </div>
 
-                      <div className="flex gap-4">
+                      <div className="w-full flex justify-between gap-3 md:gap-4 px-3 pb-6">
                         <Button
                           asChild
                           size="lg"
-                          className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 transition-all duration-500 hover:scale-110 text-lg px-8 py-4 rounded-2xl group"
+                          className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 transition-all duration-500 hover:scale-110 text-sm md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-2xl group"
                         >
                           <Link href={project.liveUrl} target="_blank">
-                            <Play className="w-5 h-5 mr-3 group-hover:animate-bounce" />
+                            <Play className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 group-hover:animate-bounce" />
                             <span className="font-bold">Live Demo</span>
                           </Link>
                         </Button>
@@ -160,10 +234,10 @@ export function ProjectsSection() {
                           variant="outline"
                           size="lg"
                           asChild
-                          className="glass-morphism border-2 border-white/30 hover:border-white/50 text-white hover:text-white transition-all duration-500 hover:scale-110 text-lg px-8 py-4 rounded-2xl bg-transparent group"
+                          className="w-full glass-morphism border-2 border-white/30 hover:border-white/50 text-white hover:text-white transition-all duration-500 hover:scale-110 text-sm md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-transparent group"
                         >
                           <Link href={project.githubUrl} target="_blank">
-                            <Code2 className="w-5 h-5 mr-3 group-hover:animate-bounce" />
+                            <Code2 className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 group-hover:animate-bounce" />
                             <span className="font-bold">View Code</span>
                           </Link>
                         </Button>
@@ -172,50 +246,114 @@ export function ProjectsSection() {
                   </div>
 
                   {/* Floating Action Buttons */}
-                  {/* <div className="absolute top-8 right-8 flex gap-3">
+                  {/* <div className="absolute top-4 md:top-8 right-4 md:right-8 flex gap-2 md:gap-3">
                     <Button
                       size="icon"
-                      className="glass-morphism hover:scale-125 transition-all duration-300 w-12 h-12"
+                      className="glass-morphism hover:scale-125 transition-all duration-300 w-10 h-10 md:w-12 md:h-12"
                     >
-                      <Eye className="w-5 h-5" />
+                      <Eye className="w-4 h-4 md:w-5 md:h-5" />
                     </Button>
                     <Button
                       size="icon"
-                      className="glass-morphism hover:scale-125 transition-all duration-300 w-12 h-12"
+                      className="glass-morphism hover:scale-125 transition-all duration-300 w-10 h-10 md:w-12 md:h-12"
                     >
-                      <Zap className="w-5 h-5" />
+                      <Zap className="w-4 h-4 md:w-5 md:h-5" />
                     </Button>
                   </div> */}
                 </div>
               ))}
 
+              {/* Swipe Navigation Buttons */}
+              {/* <Button
+                variant="outline"
+                size="icon"
+                className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 glass-morphism bg-transparent hover:scale-110 transition-all duration-300 w-10 h-10 md:w-12 md:h-12"
+                onClick={prevProject}
+              >
+                <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 glass-morphism bg-transparent hover:scale-110 transition-all duration-300 w-10 h-10 md:w-12 md:h-12"
+                onClick={nextProject}
+              >
+                <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+              </Button> */}
+
               {/* Navigation Dots */}
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3">
+              <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 md:gap-3">
                 {featuredProjects.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveProject(index)}
-                    className={`w-4 h-4 rounded-full transition-all duration-300 ${index === activeProject
+                    className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 ${index === activeProject
                       ? "bg-gradient-to-r from-purple-500 to-pink-500 scale-125"
                       : "bg-white/30 hover:bg-white/50"
                       }`}
                   />
                 ))}
               </div>
+
+              {/* Swipe Indicator */}
+              {/* <div className="absolute bottom-16 md:bottom-20 left-1/2 transform -translate-x-1/2 md:hidden">
+                <div className="flex items-center gap-2 text-white/60 text-xs">
+                  <ChevronLeft className="w-3 h-3" />
+                  <span>Swipe</span>
+                  <ChevronRight className="w-3 h-3" />
+                </div>
+              </div> */}
             </div>
 
-            {/* Project Thumbnails */}
-            <div className="flex gap-4 mt-8 justify-center">
-              {featuredProjects.map((project, index) => (
-                <button
-                  key={project.id}
-                  onClick={() => setActiveProject(index)}
-                  className={`relative w-24 h-16 rounded-xl overflow-hidden transition-all duration-500 ${index === activeProject ? "scale-110 ring-4 ring-purple-500" : "opacity-60 hover:opacity-100"
-                    }`}
-                >
-                  <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
-                </button>
-              ))}
+            {/* Project Thumbnails with Navigation */}
+            <div className="relative mt-8">
+              <div className="flex items-center justify-center">
+                {/* Thumbnail Navigation - Left Arrow */}
+                {thumbnailIndex > 0 && (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="mr-4 glass-morphism bg-transparent hover:scale-110 transition-all duration-300 w-8 h-8 md:w-10 md:h-10"
+                    onClick={prevThumbnail}
+                  >
+                    <ChevronLeft className="w-3 h-3 md:w-4 md:h-4" />
+                  </Button>
+                )}
+
+                {/* Thumbnails Container */}
+                <div ref={thumbnailsRef} className="flex gap-2 md:gap-4 w-full">
+                  {featuredProjects.map((project, index) => {
+                    const actualIndex = thumbnailIndex + index
+                    return (
+                      <button
+                        key={project.id}
+                        onClick={() => setActiveProject(actualIndex)}
+                        className={`relative w-16 h-10 md:w-24 md:h-16 rounded-md md:rounded-xl transition-all duration-500 flex-shrink-0 
+                          ${actualIndex === activeProject ? "ring-2 md:ring-4 ring-purple-500" : "opacity-60 hover:opacity-100"}`}
+                      >
+                        <Image
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          fill
+                          className="object-cover w-16 h-10 md:w-24 md:h-16 rounded-lg md:rounded-xl"
+                        />
+                      </button>
+                    )
+                  })}
+                </div>
+
+                {/* Thumbnail Navigation - Right Arrow */}
+                {/* {thumbnailIndex < featuredProjects.length - 3 && (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="ml-4 glass-morphism bg-transparent hover:scale-110 transition-all duration-300 w-8 h-8 md:w-10 md:h-10"
+                    onClick={nextThumbnail}
+                  >
+                    <ChevronRight className="w-3 h-3 md:w-4 md:h-4" />
+                  </Button>
+                )} */}
+              </div>
             </div>
           </div>
         </div>
@@ -234,86 +372,107 @@ export function ProjectsSection() {
           </div>
 
           {/* Masonry Grid Layout */}
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-            {otherProjects.map((project, index) => (
-              <Card
-                key={project.id}
-                className={`group break-inside-avoid glass-morphism border-0 hover:shadow-2xl transition-all duration-700 `} //${isVisible ? "animate-slide-in-bounce" : "opacity-0"} hover:scale-105 cursor-pointer 
-                style={{ animationDelay: `${1 + index * 0.2}s` }}
-              // onMouseEnter={() => setHoveredProject(project.id)}
-              // onMouseLeave={() => setHoveredProject(null)}
-              >
-                {/* Project Image */}
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    width={400}
-                    height={250}
-                    className="w-full h-48 object-cover transition-all duration-700 "
-                  />
-                  {/* group-hover:scale-125 group-hover:rotate-2 */}
+          <div className="relative pb-6">
+            <Swiper
+              modules={[Navigation]}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+                handleSlideChange();
+              }}
+              onSlideChange={handleSlideChange}
+              spaceBetween={20}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1.1,
+                },
+                640: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
+              className="!pb-16"
+            >
+              {otherProjects.map((project, index) => (
+                <SwiperSlide >
+                  <Card key={project.id}
+                    className={`group break-inside-avoid glass-morphism border-0 hover:shadow-2xl transition-all duration-700 `} //${isVisible ? "animate-slide-in-bounce" : "opacity-0"} hover:scale-105 cursor-pointer 
+                    style={{ animationDelay: `${1 + index * 0.2}s` }}
+                  // onMouseEnter={() => setHoveredProject(project.id)}
+                  // onMouseLeave={() => setHoveredProject(null)}
+                  >
+                    {/* Project Image */}
+                    <div className="relative overflow-hidden rounded-t-lg">
+                      <Image
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.title}
+                        width={400}
+                        height={250}
+                        className="w-full h-48 object-cover transition-all duration-700 "
+                      />
+                      {/* group-hover:scale-125 group-hover:rotate-2 */}
 
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
-                  {/* Floating Buttons */}
-                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
-                    <Button
-                      size="icon"
-                      className="glass-morphism hover:scale-110 transition-all duration-300 w-10 h-10"
-                      asChild
-                    >
-                      <Link href={project.liveUrl} target="_blank">
-                        <ExternalLink className="w-4 h-4" />
-                      </Link>
-                    </Button>
-                    <Button
-                      size="icon"
-                      className="glass-morphism hover:scale-110 transition-all duration-300 w-10 h-10"
-                      asChild
-                    >
-                      <Link href={project.githubUrl} target="_blank">
-                        <Github className="w-4 h-4" />
-                      </Link>
-                    </Button>
-                  </div>
+                      {/* Floating Buttons */}
+                      <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                        <Button
+                          size="icon"
+                          className="glass-morphism hover:scale-110 transition-all duration-300 w-10 h-10"
+                          asChild
+                        >
+                          <Link href={project.liveUrl} target="_blank">
+                            <ExternalLink className="w-4 h-4" />
+                          </Link>
+                        </Button>
+                        <Button
+                          size="icon"
+                          className="glass-morphism hover:scale-110 transition-all duration-300 w-10 h-10"
+                          asChild
+                        >
+                          <Link href={project.githubUrl} target="_blank">
+                            <Github className="w-4 h-4" />
+                          </Link>
+                        </Button>
+                      </div>
 
-                  {/* Project Number */}
-                  <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      {index + 1}
+                      {/* Project Number */}
+                      {/* <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                        <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                          {index + 1}
+                        </div>
+                      </div> */}
                     </div>
-                  </div>
-                </div>
 
-                <CardHeader className="p-6">
-                  <Link href={project.liveUrl}>
-                    <CardTitle className="text-xl font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-500 flex items-center gap-3">
-                      <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-full animate-pulse" />
-                      {project.title}
-                    </CardTitle>
-                  </Link>
-                  <p className="text-sm font-light mb-2 text-gray-500">- &nbsp;&nbsp;&nbsp;{project.subTitle}</p>
-                  <CardDescription className="text-base leading-relaxed">{project.description}</CardDescription>
-                </CardHeader>
+                    <CardHeader className="p-6">
+                      <Link href={project.liveUrl}>
+                        <CardTitle className="text-xl font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-500 flex items-center gap-3">
+                          <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-full animate-pulse" />
+                          {project.title}
+                        </CardTitle>
+                      </Link>
+                      <p className="text-sm font-light mb-2 text-gray-500">&nbsp;&nbsp;&nbsp;&nbsp;({project.subTitle})</p>
+                      <CardDescription className="text-base leading-relaxed">{project.description}</CardDescription>
+                    </CardHeader>
 
-                <CardContent className="px-6 pb-6 h-16">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge
-                        key={techIndex}
-                        variant="outline"
-                        className="text-xs hover:scale-110 transition-transform duration-300 cursor-pointer holographic border-0"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
+                    <CardContent className="px-6 pb-6 min-h-16">
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, techIndex) => (
+                          <Badge
+                            key={techIndex}
+                            variant="outline"
+                            className="text-xs hover:scale-110 transition-transform duration-300 cursor-pointer holographic border-0"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
 
-                {/* Animated Border */}
-                {/* <div
+                    {/* Animated Border */}
+                    {/* <div
                   className={`absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${hoveredProject === project.id ? "animate-rainbow" : ""
                     }`}
                   style={{
@@ -324,8 +483,26 @@ export function ProjectsSection() {
                 >
                   <div className="w-full h-full bg-background rounded-lg"></div>
                 </div> */}
-              </Card>
-            ))}
+                  </Card>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <div className="absolute bottom-4 right-4 flex gap-2 z-10">
+              <Button
+                variant="outline"
+                disabled={isBeginning}
+                onClick={() => swiperRef.current?.slidePrev()}
+              >
+                <MoveLeft />
+              </Button>
+              <Button
+                disabled={isEnd}
+                onClick={() => swiperRef.current?.slideNext()}
+              >
+                <MoveRight />
+              </Button>
+            </div>
           </div>
         </div>
 

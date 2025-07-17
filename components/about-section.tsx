@@ -5,8 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { User, MapPin, Calendar, Coffee, Code, Heart } from "lucide-react"
 import { portfolioData } from "@/lib/data"
-import { useEffect, useState } from "react"
-import Image from "next/image"
+import React, { useEffect, useState } from "react"
 
 export function AboutSection() {
   const { personal } = portfolioData
@@ -65,12 +64,10 @@ export function AboutSection() {
             <div className="relative">
               <div className="relative w-[340px] h-[340px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 rounded-3xl blur-2xl opacity-30 animate-pulse"></div>
-                <Image
-                  src={personal.avatar || "/placeholder.svg"}
+                <img
+                  src={"/img/about-img.jpg"}
                   alt={personal.name}
-                  width={340}
-                  height={340}
-                  className="relative z-10 rounded-3xl border-4 border-white/20 shadow-2xl hover:scale-105 transition-all duration-700"
+                  className="relative z-10 w-[340px] h-[340px] rounded-3xl border-4 object-cover border-white/20 shadow-2xl hover:scale-105 transition-all duration-700"
                 />
 
                 {/* Floating Elements */}
@@ -116,12 +113,12 @@ export function AboutSection() {
             style={{ animationDelay: "0.3s" }}
           >
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 {/* Passionate Developer & Problem Solver */}
                 Skilled Developer & Problem Solver
               </h3>
 
-              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-md md:text-lg text-muted-foreground leading-relaxed">
                 <p>
                   Hi there! I'm <span className="font-semibold text-foreground">{personal.name}</span>, a passionate
                   frontend developer with over 1+ years of experience creating digital solutions that make a
@@ -187,7 +184,7 @@ export function AboutSection() {
                 variant="outline"
                 size="lg"
                 asChild
-                className="glass-morphism border-2 border-purple-500/50 hover:border-purple-500 transition-all duration-500 hover:scale-105 text-lg px-8 py-4 rounded-2xl group bg-transparent"
+                className="glass-morphism border-2 !border-purple-500/60 !bg-gray-700 hover:border-purple-600 transition-all duration-500 hover:scale-105 text-lg px-8 py-4 rounded-2xl group bg-transparent"
               >
                 <a href='/resume/Tausif-resume.pdf' target="_blank" rel="noreferrer">
                   <Code className="w-5 h-5 mr-3 group-hover:animate-bounce" />

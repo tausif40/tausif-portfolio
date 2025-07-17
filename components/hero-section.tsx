@@ -3,10 +3,9 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Download, Github, Linkedin, Sparkles, Zap, Rocket, ArrowRight, Mail } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 import { portfolioData } from "@/lib/data"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import {
   FaHtml5,
   FaCss3Alt,
@@ -26,6 +25,7 @@ import {
   SiZod
 } from "react-icons/si";
 import { GrReactjs } from "react-icons/gr";
+
 
 export function HeroSection() {
   const { personal } = portfolioData
@@ -160,7 +160,7 @@ export function HeroSection() {
         />
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
-          <div className={`space-y-10 ${isVisible ? "animate-slide-in-bounce" : "opacity-0"} mt-16`}>
+          <div className={`${isVisible ? "animate-slide-in-bounce" : "opacity-0"} mt-16`}>
             <div className="space-y-8">
               <Badge variant="secondary" className="text-sm glass-morphism neon-border px-6 py-2">
                 <Sparkles className="w-3 h-3 mr-2 animate-pulse" />
@@ -190,8 +190,8 @@ export function HeroSection() {
                 </span>
               </p>
 
-              <div className="relative p-6 glass-morphism rounded-3xl border neon-border">
-                <p className="text-lg text-muted-foreground leading-relaxed">{personal.bio}</p>
+              <div className="relative p-[20px] md:p-6 glass-morphism rounded-3xl border neon-border">
+                <p className="md:text-lg text-muted-foreground leading-relaxed">{personal.bio}</p>
                 <div className="absolute top-3 right-4 flex gap-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                   <div
@@ -203,7 +203,7 @@ export function HeroSection() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-6 mt-8">
               <Button
                 asChild
                 size="lg"
@@ -230,7 +230,7 @@ export function HeroSection() {
               </Button>
             </div>
 
-            <div className="flex gap-6">
+            <div className="flex gap-6 mt-4">
               {[
                 { href: personal.social.github, icon: Github, color: "from-gray-600 to-gray-800" },
                 { href: personal.social.linkedin, icon: Linkedin, color: "from-blue-600 to-blue-800" },
@@ -253,7 +253,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className={`relative ${isVisible ? "animate-slide-in-bounce" : "opacity-0"} lg:pl-20 mb-16`}
+          <div className={`relative ${isVisible ? "animate-slide-in-bounce" : "opacity-0"} lg:pl-20 mt-12 mb-16`}
             style={{ animationDelay: "0.5s" }}>
             <div className="relative w-96 h-96 m-auto">
               {/* 3 Orbital Rings */}
@@ -275,13 +275,10 @@ export function HeroSection() {
 
               {/* Main Avatar */}
               <div className="relative z-10 w-full h-full flex items-center justify-center">
-                <Image
+                <img
                   src={personal.avatar || "/placeholder.svg"}
                   alt={personal.name}
-                  width={300}
-                  height={300}
-                  className="relative z-10 rounded-full border-4 border-white/20 shadow-2xl hover:scale-105 transition-all duration-700"
-                  priority
+                  className="relative z-10 h-[300px] w-[300px] rounded-full border-4 object-cover border-white/20 shadow-2xl hover:scale-105 transition-all duration-700"
                 />
               </div>
 
