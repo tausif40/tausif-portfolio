@@ -309,8 +309,8 @@ export function HeroSection() {
                 {[
                   { icon: "⌛", angle: 0 },
                   { icon: "⚡", angle: 90 },
-                  { icon: "🎓", angle: 180 },
-                  { icon: "🔥", angle: 270 },
+                  { icon: "🔥", angle: 180 },
+                  { icon: "🎓", angle: 270 },
                 ].map((item, index) => (
                   <div
                     key={`ring2-${index}`}
@@ -330,10 +330,10 @@ export function HeroSection() {
               {/* Ring 3 - 4 icons at 220px radius */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 orbit-container-3">
                 {[
-                  { icon: "🤖", angle: 45 },
+                  { icon: "🎯", angle: 45 },
                   { icon: "💻", angle: 135 },
                   { icon: "🥇", angle: 225 },
-                  { icon: "🎯", angle: 315 },
+                  { icon: "🏆", angle: 315 },
                 ].map((item, index) => (
                   <div
                     key={`ring3-${index}`}

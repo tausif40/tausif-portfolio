@@ -203,7 +203,7 @@ export function ProjectsSection() {
                           Featured Project
                         </Badge>
 
-                        <h3 className="text-2xl md:text-4xl lg:text-5xl font-semibold font-black text-white mb-4">{project.title}</h3>
+                        <h3 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-4">{project.title}</h3>
                         <p className="text-base md:text-xl text-gray-200 mb-6 leading-relaxed">{project.description}</p>
 
                         <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
@@ -211,7 +211,7 @@ export function ProjectsSection() {
                             <Badge
                               key={techIndex}
                               variant="secondary"
-                              className="glass-morphism text-white border-white/20 text-xs md:text-sm px-2 md:px-3 py-1"
+                              className="font-semibold text-white border-white/20 text-xs md:text-sm px-2 md:px-3 py-1"
                             >
                               {tech}
                             </Badge>
@@ -219,7 +219,7 @@ export function ProjectsSection() {
                         </div>
                       </div>
 
-                      <div className="w-full flex justify-between gap-3 md:gap-4 px-3 pb-6">
+                      <div className="w-full flex justify-center md:justify-start gap-3 md:gap-4 px-3 pb-10 md:pb-6">
                         <Button
                           asChild
                           size="lg"
@@ -321,7 +321,7 @@ export function ProjectsSection() {
                 )}
 
                 {/* Thumbnails Container */}
-                <div ref={thumbnailsRef} className="flex gap-2 md:gap-4 w-full">
+                <div ref={thumbnailsRef} className="flex justify-center gap-2 md:gap-4 w-full">
                   {featuredProjects.map((project, index) => {
                     const actualIndex = thumbnailIndex + index
                     return (
@@ -372,7 +372,7 @@ export function ProjectsSection() {
           </div>
 
           {/* Masonry Grid Layout */}
-          <div className="relative pb-6">
+          <div className="relative pb-4">
             <Swiper
               modules={[Navigation]}
               onSwiper={(swiper) => {
@@ -504,6 +504,11 @@ export function ProjectsSection() {
               </Button>
             </div>
           </div>
+          <div className="flex justify-center">
+            <Link href='all-projects'>
+              <Button variant='secondary' className="px-8">See All Project</Button>
+            </Link>
+          </div>
         </div>
 
         {/* Call to Action */}
@@ -512,23 +517,23 @@ export function ProjectsSection() {
           style={{ animationDelay: "1.5s" }}
         >
           <Card className="glass-morphism border-0 max-w-2xl mx-auto">
-            <CardContent className="p-12 text-center relative overflow-hidden">
+            <CardContent className="p-4 sm:p-8 md:p-12 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-cyan-500/5 animate-gradient-shift" />
 
               <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-4 rainbow-text">Ready to Start Your Project?</h3>
-                <p className="text-lg text-muted-foreground mb-8">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 rainbow-text">Ready to Start Your Project?</h3>
+                <p className="text-sm md:text-lg text-muted-foreground mb-8">
                   Let's collaborate and bring your amazing ideas to life with cutting-edge technology!
                 </p>
 
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 transition-all duration-500 hover:scale-110 hover:shadow-2xl text-lg px-12 py-6 rounded-2xl group"
+                  className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 transition-all duration-500 hover:scale-105 hover:shadow-xl text-md md:text-lg px-4 sm:px-6 md:px-12 py-6 rounded-2xl group"
                 >
-                  <Link href="#contact">
-                    <Rocket className="w-6 h-6 mr-3 group-hover:animate-bounce" />
-                    <span className="font-bold">Let's Build Something Amazing</span>
+                  <Link href="#contact">  
+                    <Rocket className="w-6 h-6 mr-2 md:mr-3 group-hover:animate-bounce" />
+                    <span className="font-semibold md:font-bold">Let's Build Something Amazing</span>
                   </Link>
                 </Button>
               </div>
@@ -536,6 +541,6 @@ export function ProjectsSection() {
           </Card>
         </div>
       </div>
-    </section>
+    </section >
   )
 }

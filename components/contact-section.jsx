@@ -88,7 +88,7 @@ export function ContactSection() {
   }
 
   const getButtonClasses = () => {
-    const baseClasses = "w-full h-14 text-lg font-bold transition-all duration-500 group relative overflow-hidden"
+    const baseClasses = "w-full h-14 md:text-lg font-bold transition-all duration-500 group relative overflow-hidden"
 
     switch (true) {
       case loading:
@@ -102,7 +102,7 @@ export function ContactSection() {
 
 
   return (
-    <section id="contact" className="py-20 px-4 relative overflow-hidden">
+    <section id="contact" className="py-20 md:px-4 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-purple-400/15 via-pink-400/15 to-red-400/15 rounded-full blur-3xl animate-morphing"></div>
@@ -144,7 +144,7 @@ export function ContactSection() {
             </span>
           </h2>
 
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Ready to bring your ideas to life? Let's collaborate and create
             <span className="text-transparent bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text font-semibold">
               {" "}
@@ -160,7 +160,7 @@ export function ContactSection() {
               <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Let's Create Magic Together
               </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+              <p className="md:text-lg text-muted-foreground leading-relaxed mb-8">
                 I'm always excited about new opportunities and innovative projects. Whether you have a groundbreaking
                 idea or need a skilled developer to join your team, let's make it happen!
               </p>
@@ -179,7 +179,7 @@ export function ContactSection() {
                   >
                     <CardContent className="p-4 text-center">
                       <div className="text-2xl mb-1">{stat.icon}</div>
-                      <div className="font-bold text-lg rainbow-text">{stat.value}</div>
+                      <div className="font-semibold md:font-bold text-base md:text-lg rainbow-text min-w-max">{stat.value}</div>
                       <div className="text-xs text-muted-foreground">{stat.label}</div>
                     </CardContent>
                   </Card>
@@ -247,8 +247,8 @@ export function ContactSection() {
             {/* Animated Border */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 animate-shimmer" />
 
-            <CardHeader className="p-8 relative">
-              <CardTitle className="text-3xl font-bold flex items-center gap-3">
+            <CardHeader className="px-2 py-8 md:p-8 relative">
+              <CardTitle className="text-2xl md:text-3xl font-bold flex items-center gap-3">
                 <Sparkles className="w-8 h-8 text-yellow-500 animate-pulse" />
                 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                   Send Message
@@ -260,7 +260,7 @@ export function ContactSection() {
               </CardDescription> */}
             </CardHeader>
 
-            <CardContent className="p-8 pt-0">
+            <CardContent className="px-2 py-6 md:p-8 pt-0">
               <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-4">
                   <div className="relative group">
@@ -295,7 +295,7 @@ export function ContactSection() {
                       id="message"
                       name="message"
                       placeholder="Write Description Here"
-                      rows={6}
+                      rows={4}
                       required
                       disabled={loading}
                       onChange={() => setSuccess(false)}
@@ -305,16 +305,8 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                <Button
-                  type="submit"
-                  className={getButtonClasses()}
-                // className="w-full h-14 text-lg font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 transition-all duration-500 hover:scale-103 hover:shadow-2xl group relative overflow-hidden"
-                >
+                <Button type="submit" className={getButtonClasses()}>
                   <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-
-                  {/* <Zap className="w-5 h-5 ml-3 relative z-10 group-hover:animate-pulse" />
-                  <span className="relative z-10">{loading ? 'Sending...' : success ? 'Message sent!' : 'Send Message'}</span>
-                  <Send className="w-5 h-5 mr-3 relative z-10 group-hover:animate-bounce" /> */}
 
                   {loading && (
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-pulse" />
@@ -350,7 +342,7 @@ export function ContactSection() {
                   : <p className="text-sm text-muted-foreground flex items-center">
                     <Sparkles className="w-4 h-4 text-yellow-400 animate-pulse" />&nbsp;&nbsp;
                     <p> Every great project starts with a conversation. Why not start one now? </p>
-                  </p>
+                  </p>  
                 }
               </div>
 

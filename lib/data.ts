@@ -273,25 +273,7 @@ export const portfolioData = {
 			githubUrl: "https://github.com/tausif40",
 			featured: false
 		},
-		{
-			id: 5,
-			title: "My Portfolio",
-			subTitle: "Personal Portfolio Website",
-			description:
-				"This portfolio showcases of my skills in advanced UI/UX design, animations, and performance-optimized web development.",
-			image: "/projects/portfolio.png",
-			technologies: [
-				"HTML",
-				"CSS",
-				"Javascript",
-				"NEXT",
-				"shadcn UI",
-				"Tailwind CSS"
-			],
-			liveUrl: "https://tausif.info",
-			githubUrl: "https://github.com/tausif40",
-			featured: false
-		}
+		
 	],
 	experience: [
 		{
@@ -300,7 +282,7 @@ export const portfolioData = {
 			duration: "July / 2024 - Current",
 			location: "Indore, Madhya Pradesh",
 			description:
-				"I am a frontend web developer with 1+ year of hands-on experience building modern, responsive web applications. I specialize in creating fast and user-friendly interfaces using React.js, Next.js and related tools, Focused on web development, algorithms, and software engineering principles, I enjoy creating clean, user-friendly interfaces with modern technologies",
+				"Frontend Developer with 1+ year of experience, working in an office environment and collaborating closely with backend developers. Proficient in React.js, Next.js, JavaScript, TypeScript, Redux, Tailwind CSS, and Socket.io. I’ve contributed to full project lifecycles from understanding client requirements and participating in team discussions to implementing UI components, managing state, and integrating APIs. Focused on writing clean, maintainable code and delivering better user experiences.",
 			technologies: [
 				"React.js",
 				"Next.js",
@@ -309,6 +291,23 @@ export const portfolioData = {
 				"Redux",
 				"Socket.io",
 				"Tailwind CSS"
+			]
+		},
+		{
+			company: "Self-Employed",
+			position: "Freelance Web Developer",
+			duration: "Jan to july - 2024",
+			location: "Indore, Madhya Pradesh",
+			description:
+				"Worked directly with clients to understand their requirement, and turn ideas into fully functional web applications. From the first meeting to the final deployment, I handled the entire development process, design user interfaces, coding in React, Next.js, Tailwind CSS, and managing state with Redux. I focused on building clean, responsive websites and admin panels, while ensuring clear communication, and adapting to client feedback throughout the project.",
+			technologies: [
+				"React.js",
+				"JavaScript",
+				"HTML",
+				"CSS",
+				"Tailwind CSS",
+				"Bootstrap",
+				"Jquery",
 			]
 		},
 		{

@@ -62,12 +62,12 @@ export function AboutSection() {
           {/* Left Side - Image and Stats */}
           <div className={`space-y-8 ${isVisible ? "animate-slide-in-bounce" : "opacity-0"}`}>
             <div className="relative">
-              <div className="relative w-[340px] h-[340px] mx-auto">
+              <div className="relative w-[340px] h-[360px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600 rounded-3xl blur-2xl opacity-30 animate-pulse"></div>
                 <img
                   src={"/img/about-img.jpg"}
                   alt={personal.name}
-                  className="relative z-10 w-[340px] h-[340px] rounded-3xl border-4 object-cover border-white/20 shadow-2xl hover:scale-105 transition-all duration-700"
+                  className="relative z-10 w-[340px] h-[360px] rounded-3xl border-4 object-cover border-white/20 shadow-2xl hover:scale-105 transition-all duration-700 object-top"
                 />
 
                 {/* Floating Elements */}
