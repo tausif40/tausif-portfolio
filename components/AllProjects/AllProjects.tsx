@@ -253,13 +253,20 @@ export default function Page() {
 
 											{/* Featured Badge */}
 											{project.featured && (
-												<div className="absolute top-4 left-4">
+												<div className="absolute top-3 left-4">
 													<Badge className="bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white border-0 animate-pulse text-xs">
 														<Star className="w-3 h-3 mr-1 fill-current" />
 														Featured
 													</Badge>
 												</div>
 											)}
+											{project?.status &&
+												<div className="absolute top-2 left-2 transition-all duration-500">
+													<div className="px-2 bg-yellow-200 text-yellow-600 border border-yellow-500 rounded-full flex items-center justify-center text-sm">
+														{project?.status}
+													</div>
+												</div>
+											}
 
 											{/* Action Buttons */}
 											<div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500">
