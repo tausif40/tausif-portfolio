@@ -4,13 +4,11 @@ import {
 	FaJs,
 	FaReact,
 	FaGitAlt,
-	FaNpm
 } from "react-icons/fa";
 import {
 	SiTailwindcss,
 	SiNextdotjs,
 	SiTypescript,
-	SiFramer,
 	SiRedux,
 	SiShadcnui,
 	SiSocketdotio,
@@ -273,7 +271,7 @@ export const portfolioData = {
 			githubUrl: "https://github.com/tausif40",
 			featured: false
 		},
-		
+
 	],
 	experience: [
 		{
@@ -360,4 +358,3 @@ export type Experience = (typeof portfolioData.experience)[0];
 export type Testimonial = (typeof portfolioData.testimonials)[0];
 export type Service = (typeof portfolioData.services)[0];
 export type Achievement = (typeof portfolioData.achievements)[0];
-export type BlogPost = (typeof portfolioData.blog)[0];
