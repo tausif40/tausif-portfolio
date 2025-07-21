@@ -87,7 +87,7 @@ export function AboutSection() {
             <div className="grid grid-cols-3 gap-4">
               {[
                 { label: "Years Experience", value: "1+", icon: Calendar, color: "from-blue-500 to-cyan-500" },
-                { label: "Projects Completed", value: "9+", icon: Code, color: "from-purple-500 to-pink-500" },
+                { label: "Projects Completed", value: "10+", icon: Code, color: "from-purple-500 to-pink-500" },
                 { label: "Cups of Coffee", value: "∞", icon: Coffee, color: "from-orange-500 to-red-500" },
               ].map((stat, index) => (
                 <Card key={stat.label} className="glass-morphism border-0 hover:scale-105 transition-all duration-300">

@@ -177,7 +177,7 @@ export function ExperienceSection() {
 						{[
 							{ number: "1+", label: "Years Experience", icon: "⏰", color: "from-blue-500 to-cyan-500" },
 							{ number: "1", label: "Companies", icon: "🏢", color: "from-purple-500 to-pink-500" },
-							{ number: "8+", label: "Projects Delivered", icon: "🚀", color: "from-green-500 to-emerald-500" },
+							{ number: "10+", label: "Projects Delivered", icon: "🚀", color: "from-green-500 to-emerald-500" },
 							{ number: "100%", label: "Client Satisfaction", icon: "⭐", color: "from-yellow-500 to-orange-500" },
 						].map((stat, index) => (
 							<Card

@@ -169,7 +169,7 @@ export function ContactSection() {
               <div className="grid grid-cols-4 gap-4 mb-8">
                 {[
                   { label: "Response Time", value: "< 24hrs", icon: "⚡" },
-                  { label: "Projects Done", value: "14+", icon: "🚀" },
+                  { label: "Projects Done", value: "10+", icon: "🚀" },
                   { label: "Happy Clients", value: "100%", icon: "😊" },
                   { label: "Coffee Consumed", value: "∞", icon: "☕" },
                 ].map((stat, index) => (
