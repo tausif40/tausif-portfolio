@@ -264,11 +264,11 @@ export function HeroSection() {
                   style={{ width: `${360 + i * 60}px`, height: `${360 + i * 60}px` }}
                 >
                   <div
-                    className={`absolute inset-0 rounded-full border-2 opacity-30`}
-                    style={{
-                      borderColor: ["#ff00ff", "#00ffff", "#ffff00"][i],
-                      borderStyle: "solid",
-                    }}
+                    className={`absolute inset-0 rounded-full opacity-30`} // border-2
+                  // style={{
+                  //   borderColor: ["#ff00ff", "#00ffff", "#ffff00"][i],
+                  //   borderStyle: "solid",
+                  // }}
                   />
                 </div>
               ))}
@@ -278,7 +278,7 @@ export function HeroSection() {
                 <img
                   src={personal.avatar || "/placeholder.svg"}
                   alt={personal.name}
-                  className="relative z-10 h-[300px] w-[300px] rounded-full border-4 object-cover border-white/20 shadow-2xl hover:scale-105 transition-all duration-700"
+                  className="relative z-10 h-[350px] w-[350px] rounded-full border-4 object-cover border-white/20 shadow-2xl hover:scale-105 transition-all duration-700 object-top"
                 />
               </div>
 
@@ -294,7 +294,7 @@ export function HeroSection() {
                     className="absolute"
                     style={{
                       top: "50%", left: "50%",
-                      transform: `translate(-50%, -50%) rotate(${item.angle}deg) translateX(180px) rotate(-${item.angle}deg)`,
+                      transform: `translate(-50%, -50%) rotate(${item.angle}deg) translateX(200px) rotate(-${item.angle}deg)`,
                     }}
                   >
                     <div className="text-3xl opacity-90 hover:scale-125 transition-transform cursor-pointer hover:opacity-100">
@@ -317,7 +317,7 @@ export function HeroSection() {
                     className="absolute"
                     style={{
                       top: "50%", left: "50%",
-                      transform: `translate(-50%, -50%) rotate(${item.angle}deg) translateX(210px) rotate(-${item.angle}deg)`,
+                      transform: `translate(-50%, -50%) rotate(${item.angle}deg) translateX(220px) rotate(-${item.angle}deg)`,
                     }}
                   >
                     <div className="text-3xl opacity-90 hover:scale-125 transition-transform cursor-pointer hover:opacity-100">
