@@ -19,11 +19,6 @@ export const metadata: Metadata = {
     type: "website",
     locale: "India",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Tausif - Frontend Developer",
-    description: "Passionate frontend developer specializing in React, Next.js",
-  },
   generator: 'tausif.portfolio'
 }
 
