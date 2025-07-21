@@ -265,37 +265,39 @@ export default function Page() {
 											<div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500">
 												<Button
 													size="icon"
-													className="glass-morphism hover:scale-125 transition-all duration-300 w-8 h-8"
-													asChild
-												>
-													<Link href={project.liveUrl} target="_blank">
-														<ExternalLink className="w-3 h-3" />
-													</Link>
-												</Button>
-												<Button
-													size="icon"
-													className="glass-morphism hover:scale-125 transition-all duration-300 w-8 h-8"
+													className="glass-morphism hover:scale-110 transition-all duration-300 w-8 h-8"
 													asChild
 												>
 													<Link href={project.githubUrl} target="_blank">
 														<Github className="w-3 h-3" />
 													</Link>
 												</Button>
+												<Button
+													size="icon"
+													className="glass-morphism hover:scale-110 transition-all duration-300 w-8 h-8"
+													asChild
+												>
+													<Link href={project.liveUrl} target="_blank">
+														<ExternalLink className="w-3 h-3" />
+													</Link>
+												</Button>
 											</div>
 
 											{/* Project Number */}
-											<div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
+											{/* <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
 												<div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xs">
 													{index + 1}
 												</div>
-											</div>
+											</div> */}
 										</div>
 
 										<CardHeader className="p-4">
-											<CardTitle className="text-lg font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-500 flex items-center gap-2">
-												<div className="w-2 h-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-full animate-pulse" />
-												{project.title}
-											</CardTitle>
+											<Link href={project.liveUrl} target="_blank">
+												<CardTitle className="text-lg font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-500 flex items-center gap-2">
+													<div className="w-2 h-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-full animate-pulse" />
+													{project.title}
+												</CardTitle>
+											</Link>
 											<CardDescription className="text-sm leading-relaxed">{project.description}</CardDescription>
 										</CardHeader>
 
