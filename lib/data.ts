@@ -229,6 +229,26 @@ export const portfolioData = {
 			featured: true
 		},
 		{
+			id: 2,
+			title: "Zappy",
+			subTitle: "Event Management Platform",
+			description:
+				"Zappy is a comprehensive event management platform designed to simplify the planning and organization of various events such as weddings, birthdays, and corporate gatherings.",
+			image: "/projects/zappy.png",
+			technologies: [
+				"Next.js",
+				"TypeScript",
+				"Redux Toolkit",
+				"Zod",
+				"Socket.io",
+				"ShadCN UI"
+			],
+			liveUrl: "https://zappy-gilt.vercel.app",
+			githubUrl: "https://github.com/tausif40",
+			featured: false,
+			status: "Working"
+		},
+		{
 			id: 3,
 			title: "Best Fitted Wardrobe",
 			subTitle: "Bespoke Wardrobe Design",

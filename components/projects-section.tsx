@@ -417,7 +417,7 @@ export function ProjectsSection() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
                       {/* Floating Buttons */}
-                      <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                      <div className="absolute top-2 right-4 flex gap-2 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
                         <Button
                           size="icon"
                           className="glass-morphism hover:scale-110 transition-all duration-300 w-10 h-10"
@@ -427,7 +427,7 @@ export function ProjectsSection() {
                             <ExternalLink className="w-4 h-4" />
                           </Link>
                         </Button>
-                        <Button
+                        {/* <Button
                           size="icon"
                           className="glass-morphism hover:scale-110 transition-all duration-300 w-10 h-10"
                           asChild
@@ -435,19 +435,19 @@ export function ProjectsSection() {
                           <Link href={project.githubUrl} target="_blank">
                             <Github className="w-4 h-4" />
                           </Link>
-                        </Button>
+                        </Button> */}
                       </div>
 
                       {/* Project Number */}
-                      {/* <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                        <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                          {index + 1}
+                      <div className="absolute top-2 left-2 transition-all duration-500">
+                        <div className="px-2 bg-yellow-200 text-yellow-600 border border-yellow-500 rounded-full flex items-center justify-center text-sm">
+                          {project?.status}
                         </div>
-                      </div> */}
+                      </div>
                     </div>
 
                     <CardHeader className="p-6">
-                      <Link href={project.liveUrl}>
+                      <Link href={project.liveUrl} target="_blank">
                         <CardTitle className="text-xl font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-500 flex items-center gap-3">
                           <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-blue-500 rounded-full animate-pulse" />
                           {project.title}
@@ -531,7 +531,7 @@ export function ProjectsSection() {
                   size="lg"
                   className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 transition-all duration-500 hover:scale-105 hover:shadow-xl text-md md:text-lg px-4 sm:px-6 md:px-12 py-6 rounded-2xl group"
                 >
-                  <Link href="#contact">  
+                  <Link href="#contact">
                     <Rocket className="w-6 h-6 mr-2 md:mr-3 group-hover:animate-bounce" />
                     <span className="font-semibold md:font-bold">Let's Build Something Amazing</span>
                   </Link>
