@@ -339,10 +339,10 @@ export function ContactSection() {
                     Message sent successfully! I will get back to you soon.
                     <Sparkles className="w-5 h-5 animate-pulse" />
                   </p>
-                  : <p className="text-sm text-muted-foreground flex items-center">
+                  : <div className="text-sm text-muted-foreground flex items-center">
                     <Sparkles className="w-4 h-4 text-yellow-400 animate-pulse" />&nbsp;&nbsp;
                     <p> Every great project starts with a conversation. Why not start one now? </p>
-                  </p>  
+                  </div>
                 }
               </div>
 

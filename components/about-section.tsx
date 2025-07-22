@@ -86,7 +86,7 @@ export function AboutSection() {
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-4">
               {[
-                { label: "Years Experience", value: "1+", icon: Calendar, color: "from-blue-500 to-cyan-500" },
+                { label: "Years Experience", value: "2", icon: Calendar, color: "from-blue-500 to-cyan-500" },
                 { label: "Projects Completed", value: "10+", icon: Code, color: "from-purple-500 to-pink-500" },
                 { label: "Cups of Coffee", value: "∞", icon: Coffee, color: "from-orange-500 to-red-500" },
               ].map((stat, index) => (
@@ -121,7 +121,7 @@ export function AboutSection() {
               <div className="space-y-4 text-md md:text-lg text-muted-foreground leading-relaxed">
                 <p>
                   Hi there! I'm <span className="font-semibold text-foreground">{personal.name}</span>, a passionate
-                  frontend developer with over 1+ years of experience creating digital solutions that make a
+                  frontend developer with over 2 years of experience creating digital solutions that make a
                   difference.
                 </p>
 

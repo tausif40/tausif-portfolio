@@ -175,7 +175,7 @@ export function ExperienceSection() {
 				>
 					<div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
 						{[
-							{ number: "1+", label: "Years Experience", icon: "⏰", color: "from-blue-500 to-cyan-500" },
+							{ number: "2", label: "Years Experience", icon: "⏰", color: "from-blue-500 to-cyan-500" },
 							{ number: "1", label: "Companies", icon: "🏢", color: "from-purple-500 to-pink-500" },
 							{ number: "10+", label: "Projects Delivered", icon: "🚀", color: "from-green-500 to-emerald-500" },
 							{ number: "100%", label: "Client Satisfaction", icon: "⭐", color: "from-yellow-500 to-orange-500" },

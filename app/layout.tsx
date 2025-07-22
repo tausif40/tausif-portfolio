@@ -8,18 +8,18 @@ import { Navigation } from "@/components/navigation"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tausif - Frontend Developer",
+  title: "Tausif - Web Developer",
   description:
-    "Frontend developer specializing in React, Next.js. View my projects and get in touch for collaboration opportunities.",
+    "Web developer specializing in React, Next.js and Node.js. View my projects and get in touch for collaboration opportunities.",
   keywords: ["web developer", "react", "nextjs", "typescript", "portfolio"],
   authors: [{ name: "Tausif" }],
   openGraph: {
-    title: "Tausif - Frontend Developer",
-    description: "I am a frontend developer specializing in React, Next.js",
+    title: "Tausif - Web Developer",
+    description: "I am a Web developer specializing in React, Next.js",
     type: "website",
     locale: "India",
   },
-  generator: 'tausif.portfolio'
+  generator: 'tausif'
 }
 
 export default function RootLayout({

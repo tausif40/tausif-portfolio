@@ -25,7 +25,7 @@ export const portfolioData = {
 		location: "Indore, MP, India",
 		avatar: "/img/hero-img.jpg",
 		resume: "/resume.pdf",
-		bio: "Frontend developer with 1+ years of experience building scalable web applications. I specialize in React.js and Next.js, with a keen eye for user experience and performance optimization. Always write clean and maintainable code.",
+		bio: "Frontend developer with 2 years of experience building scalable web applications. I specialize in React.js and Next.js, with a keen eye for user experience and performance optimization. Always write clean and maintainable code.",
 		social: {
 			github: "https://github.com/tausif40",
 			linkedin: "https://www.linkedin.com/in/muhammad-tausif-0142692a9/",
@@ -33,62 +33,25 @@ export const portfolioData = {
 		}
 	},
 	skills: [
-		{ name: "React", icon: FaReact, category: "Library", color: "sky-500" },
-		{
-			name: "Next.js",
-			icon: SiNextdotjs,
-			category: "Framework",
-			color: "black"
-		},
-		{
-			name: "TypeScript",
-			icon: SiTypescript,
-			category: "Language",
-			color: "blue-500"
-		},
-		{
-			name: "JavaScript",
-			icon: FaJs,
-			category: "Language",
-			color: "yellow-500"
-		},
-		{
-			name: "Redux Toolkit",
-			icon: SiRedux,
-			category: "Library",
-			color: "[#764abc]"
-		},
-		{
-			name: "Socket IO",
-			icon: SiSocketdotio,
-			category: "Library",
-			color: "gray-800"
-		},
-		{ name: "ZOD", icon: SiZod, category: "Library", color: "purple-500" },
-		{ name: "HTML", icon: FaHtml5, category: "Markup", color: "orange-500" },
-		{ name: "CSS", icon: FaCss3Alt, category: "Styling", color: "blue-500" },
-		{
-			name: "Tailwind CSS",
-			icon: SiTailwindcss,
-			category: "Styling",
-			color: "teal-500"
-		},
-		{
-			name: "Shadcn UI",
-			icon: SiShadcnui,
-			category: "Styling",
-			color: "gray-600"
-		},
-		{
-			name: "Git",
-			icon: FaGitAlt,
-			category: "Version Control",
-			color: "red-500"
-		}
-		// { name: "Framer Motion", icon: "🎭", category: "Styling" },
-		// { name: "Figma", icon: "🎨", category: "Design" },
-		// { name: "Jest", icon: "🧪", category: "Testing" },
-		// { name: "Webpack", icon: "📦", category: "Build Tool" }
+		{ name: "React.js", icon: "/skills/react.png", color: "bg-sky-500" },
+		{ name: "Next.js", icon: "/skills/next.png", color: "bg-black" },
+		{ name: "TypeScript", icon: "/skills/typescript.png", color: "bg-blue-500" },
+		{ name: "JavaScript", icon: "/skills/javaScript.png", color: "bg-yellow-500" },
+		{ name: "Redux Toolkit", icon: "/skills/redux.png", color: "bg-[#764abc]" },
+		{ name: "Socket IO", icon: "/skills/socket.png", color: "bg-gray-800" },
+		{ name: "React hook form", icon: "/skills/react-hook-form.png", color: "bg-red-500" },
+		{ name: "ZOD", icon: "/skills/zod.png", color: "bg-purple-500" },
+		{ name: "HTML", icon: "/skills/html.png", color: "bg-orange-500" },
+		{ name: "CSS", icon: "/skills/css.png", color: "bg-blue-500" },
+		{ name: "Tailwind CSS", icon: "/skills/tailwind.png", color: "bg-teal-500" },
+		{ name: "Shadcn UI", icon: "/skills/shadcn.png", color: "bg-gray-600" },
+		{ name: "Ant design", icon: "/skills/ant-design.svg", color: "bg-gray-600" },
+		{ name: "Material UI", icon: "/skills/material.png", color: "bg-gray-600" },
+		{ name: "Bootstrap", icon: "/skills/bootstrap.png", color: "bg-teal-500" },
+		{ name: "Framer Motion", icon: "/skills/framer-motion.png", color: "bg-gray-600" },
+		{ name: "Git", icon: "/skills/git.png", color: "bg-red-500" },
+		{ name: "Github", icon: "/skills/github.png", color: "bg-red-500" },
+		{ name: "pnpm", icon: "/skills/pnpm.png", color: "bg-red-500" },
 	],
 
 	services: [
@@ -300,7 +263,7 @@ export const portfolioData = {
 			duration: "July / 2024 - Current",
 			location: "Indore, Madhya Pradesh",
 			description:
-				"Frontend Developer with 1+ year of experience, working in an office environment and collaborating closely with backend developers. Proficient in React.js, Next.js, JavaScript, TypeScript, Redux, Tailwind CSS, and Socket.io. I’ve contributed to full project lifecycles from understanding client requirements and participating in team discussions to implementing UI components, managing state, and integrating APIs. Focused on writing clean, maintainable code and delivering better user experiences.",
+				"Frontend Developer with 2 year of experience, working in an office environment and collaborating closely with backend developers. Proficient in React.js, Next.js, JavaScript, TypeScript, Redux, Tailwind CSS, and Socket.io. I’ve contributed to full project lifecycles from understanding client requirements and participating in team discussions to implementing UI components, managing state, and integrating APIs. Focused on writing clean, maintainable code and delivering better user experiences.",
 			technologies: [
 				"React.js",
 				"Next.js",

@@ -170,67 +170,57 @@ export function SkillsSection() {
         >
 
           {/* Skills Constellation */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+          {/* grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 */}
+          <div className="flex m-auto justify-center max-w-5xl flex-wrap gap-6">
             {skills.map((skill, index) => {
               const gradientColor = getSkillColor(skill.name, index)
-              const Icon = skill.icon;
               return (
-                <div
-                  key={skill.name}
-                  className={`relative group`}
-                  style={{ animationDelay: `${0.8 + index * 0.1}s` }}
-                  onMouseEnter={() => setHoveredSkill(skill.name)}
-                  onMouseLeave={() => setHoveredSkill(null)}
-                >
-                  <Card className="tech-card-3d glass-morphism border-0 hover:shadow-2xl transition-all duration-700 group-hover:scale-105 relative overflow-hidden">
-                    {/* Animated Background */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${gradientColor} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                    ></div>
-
-                    <CardContent className="p-6 text-center relative z-10">
-                      {/* Skill Icon */}
-                      <div className="relative mb-4">
-                        <div className={`w-16 h-16 mx-auto rounded-2xl z-10`}>
-                          {/* <IconComponent className="w-full h-full text-white" /> */}
-                          <Icon className={`text-${skill.color} w-14 h-14`} />
-                        </div>
-                        {/* {skill.color} */}
-                        {/* bg-gradient-to-br ${gradientColor} p-4 group-hover:animate-tech-hover shadow-lg relative */}
-                        {/* Floating Particles */}
-                        <div className="absolute -top-2 -right-2 w-3 h-3 bg-yellow-400 rounded-full animate-ping opacity-0 group-hover:opacity-100"></div>
-                        {/* <div
-                          className="absolute -bottom-2 -left-2 w-2 h-2 bg-cyan-400 rounded-full animate-pulse opacity-0 group-hover:opacity-100"
-                          style={{ animationDelay: "0.5s" }}
-                        ></div> */}
-                      </div>
-
-                      {/* Skill Name */}
-                      <h3 className="font-semibold text-lg mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300">
-                        {skill.name}
-                      </h3>
-
-                      {/* Skill Category */}
-                      <Badge variant="outline" className="text-xs font-medium mb-2 holographic border-0">
-                        {skill.category}
-                      </Badge>
-
-                      {/* Skill Emoji */}
-                      {/* <div className="text-2xl group-hover:animate-bounce">{skill.icon}</div> */}
-
-                      {/* Hover Effect Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
-                    </CardContent>
-
-                    {/* Neon Border Effect */}
-                    <div className={`absolute inset-0 rounded-lg transition-opacity duration-500 bg-gradient-to-r ${gradientColor} p-[1px]`} >
-                      <div className="w-full h-full bg-background rounded-lg"></div>
-                    </div>
-                  </Card>
-                </div>
+                <>
+                  <div className={`glass-morphism transition-all duration-700 text-lg pl-6 pr-8 py-2 border rounded-full flex items-center gap-4 ${skill.color}`}>
+                    <img src={skill.icon} alt="" className="w-6 h-6 object-cover" />
+                    <p className="min-w-max">{skill.name}</p>
+                  </div>
+                </>
               )
             })}
           </div>
+
+          {/* <div
+            key={skill.name}
+            className={`relative group`}
+            style={{ animationDelay: `${0.8 + index * 0.1}s` }}
+            onMouseEnter={() => setHoveredSkill(skill.name)}
+            onMouseLeave={() => setHoveredSkill(null)}
+          >
+            <Card className="tech-card-3d glass-morphism border-0 hover:shadow-2xl transition-all duration-700 group-hover:scale-105 relative overflow-hidden">
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${gradientColor} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+              ></div>
+
+              <CardContent className="p-6 text-center relative z-10">
+                <div className="relative mb-4">
+                  <div className={`w-16 h-16 mx-auto rounded-2xl z-10`}>
+                    <Icon className={`text-${skill.color} w-14 h-14`} />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-3 h-3 bg-yellow-400 rounded-full animate-ping opacity-0 group-hover:opacity-100"></div>
+                </div>
+                <h3 className="font-semibold text-lg mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300">
+                  {skill.name}
+                </h3>
+
+                <Badge variant="outline" className="text-xs font-medium mb-2 holographic border-0">
+                  {skill.category}
+                </Badge>
+
+
+                <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+              </CardContent>
+
+              <div className={`absolute inset-0 rounded-lg transition-opacity duration-500 bg-gradient-to-r ${gradientColor} p-[1px]`} >
+                <div className="w-full h-full bg-background rounded-lg"></div>
+              </div>
+            </Card>
+          </div> */}
 
           {/* Interactive Stats */}
           {/* <div
@@ -239,9 +229,9 @@ export function SkillsSection() {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {[
-              { number: `${allSkills.length}+`, label: "Technologies", icon: "🚀" },
-              { number: "3+", label: "Years Experience", icon: "⭐" },
-              { number: "14+", label: "Projects Built", icon: "💻" },
+              { number: `20+`, label: "Technologies", icon: "🚀" },
+              { number: "2+", label: "Years Experience", icon: "⭐" },
+              { number: "10+", label: "Projects Built", icon: "💻" },
               { number: "∞", label: "Lines of Code", icon: "🔥" },
             ].map((stat, index) => (
               <div key={stat.label} className="group">
@@ -257,6 +247,7 @@ export function SkillsSection() {
             ))}
           </div>
         </div> */}
+
         </div>
       </div>
     </section>
