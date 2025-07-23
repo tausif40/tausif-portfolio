@@ -19,7 +19,7 @@ export const portfolioData = {
 		{ name: "ReactJS", icon: "/skills/react.png", color: "bg-sky-500" },
 		{ name: "NextJS", icon: "/skills/next.png", color: "bg-black" },
 		{ name: "TypeScript", icon: "/skills/typescript.png", color: "bg-blue-500" },
-		{ name: "JavaScript", icon: "/skills/javaScript.png", color: "bg-yellow-500" },
+		{ name: "JavaScript", icon: "/skills/javascript.png", color: "bg-yellow-500" },
 		{ name: "Redux Toolkit", icon: "/skills/redux.png", color: "bg-[#764abc]" },
 		{ name: "Socket IO", icon: "/skills/socket.png", color: "bg-gray-800" },
 		{ name: "NodeJS", icon: "/skills/node.png", color: "bg-purple-500" },
