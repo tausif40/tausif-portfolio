@@ -200,7 +200,7 @@ export function ProjectsSection() {
                       <div className="p-4">
                         <Badge className="mb-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white border-0 animate-pulse text-sm md:text-lg px-3 md:px-4 py-1 md:py-2">
                           <Star className="w-3 h-3 md:w-4 md:h-4 mr-2 fill-current" />
-                          Featured Project
+                          {project.status === "Working" ? "Working" : "Featured Project"}
                         </Badge>
 
                         <h3 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-4">{project.title}</h3>
@@ -284,14 +284,16 @@ export function ProjectsSection() {
               {/* Navigation Dots */}
               <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 md:gap-3">
                 {featuredProjects.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveProject(index)}
-                    className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 ${index === activeProject
-                      ? "bg-gradient-to-r from-purple-500 to-pink-500 scale-125"
-                      : "bg-white/30 hover:bg-white/50"
-                      }`}
-                  />
+                  <>
+                    <button
+                      key={index}
+                      onClick={() => setActiveProject(index)}
+                      className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 ${index === activeProject
+                        ? "bg-gradient-to-r from-purple-500 to-pink-500 scale-125"
+                        : "bg-white/30 hover:bg-white/50"
+                        }`}
+                    />
+                  </>
                 ))}
               </div>
 
@@ -322,8 +324,8 @@ export function ProjectsSection() {
 
                 {/* Thumbnails Container */}
                 <div ref={thumbnailsRef} className="flex justify-center gap-2 md:gap-4 w-full">
-                  {featuredProjects.map((project, index) => {
-                    const actualIndex = thumbnailIndex + index
+                  {featuredProjects.map((project, i) => {
+                    const actualIndex = thumbnailIndex + i
                     return (
                       <button
                         key={project.id}
@@ -375,10 +377,7 @@ export function ProjectsSection() {
           <div className="relative pb-4">
             <Swiper
               modules={[Navigation]}
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper;
-                handleSlideChange();
-              }}
+              onSwiper={(swiper) => { swiperRef.current = swiper; handleSlideChange(); }}
               onSlideChange={handleSlideChange}
               spaceBetween={20}
               breakpoints={{

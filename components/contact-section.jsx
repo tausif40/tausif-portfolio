@@ -295,7 +295,7 @@ export function ContactSection() {
                       id="message"
                       name="message"
                       placeholder="Write Description Here"
-                      rows={4}
+                      rows={5}
                       required
                       disabled={loading}
                       onChange={() => setSuccess(false)}

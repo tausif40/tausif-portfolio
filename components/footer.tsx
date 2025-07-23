@@ -39,7 +39,7 @@ export function Footer() {
         </div>
 
         <div className="border-t mt-8 pt-8 text-center">
-          <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
+          <p className="text-sm text-muted-foreground flex items-start justify-center gap-2">
             © {currentYear} {personal.name}.
             Made this using Next.js & TypeScript
           </p>

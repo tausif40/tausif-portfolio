@@ -1,31 +1,14 @@
-import {
-	FaHtml5,
-	FaCss3Alt,
-	FaJs,
-	FaReact,
-	FaGitAlt,
-} from "react-icons/fa";
-import {
-	SiTailwindcss,
-	SiNextdotjs,
-	SiTypescript,
-	SiRedux,
-	SiShadcnui,
-	SiSocketdotio,
-	SiZod
-} from "react-icons/si";
-
 export const portfolioData = {
 	personal: {
 		name: "Muhammad Tausif",
-		title: "Frontend Developer",
+		title: "FullStack Developer",
 		tagline: "Crafting digital experiences with modern web technologies",
 		email: "tausif6040@gmail.com",
 		phone: "+91 8804236040",
 		location: "Indore, MP, India",
 		avatar: "/img/hero-img.jpg",
 		resume: "/resume.pdf",
-		bio: "Frontend developer with 2 years of experience building scalable web applications. I specialize in React.js and Next.js, with a keen eye for user experience and performance optimization. Always write clean and maintainable code.",
+		bio: "FullStack developer with 2 years of experience building scalable web applications. I specialize in React.js, Next.js and Node.js, with a keen eye for user experience and performance optimization. Always write clean and maintainable code.",
 		social: {
 			github: "https://github.com/tausif40",
 			linkedin: "https://www.linkedin.com/in/muhammad-tausif-0142692a9/",
@@ -33,19 +16,22 @@ export const portfolioData = {
 		}
 	},
 	skills: [
-		{ name: "React.js", icon: "/skills/react.png", color: "bg-sky-500" },
-		{ name: "Next.js", icon: "/skills/next.png", color: "bg-black" },
+		{ name: "ReactJS", icon: "/skills/react.png", color: "bg-sky-500" },
+		{ name: "NextJS", icon: "/skills/next.png", color: "bg-black" },
 		{ name: "TypeScript", icon: "/skills/typescript.png", color: "bg-blue-500" },
 		{ name: "JavaScript", icon: "/skills/javaScript.png", color: "bg-yellow-500" },
 		{ name: "Redux Toolkit", icon: "/skills/redux.png", color: "bg-[#764abc]" },
 		{ name: "Socket IO", icon: "/skills/socket.png", color: "bg-gray-800" },
-		{ name: "React hook form", icon: "/skills/react-hook-form.png", color: "bg-red-500" },
-		{ name: "ZOD", icon: "/skills/zod.png", color: "bg-purple-500" },
+		{ name: "NodeJS", icon: "/skills/node.png", color: "bg-purple-500" },
+		{ name: "ExpressJS", icon: "/skills/express.png", color: "bg-purple-500" },
+		{ name: "Mongo DB", icon: "/skills/mongo-db.png", color: "bg-purple-500" },
 		{ name: "HTML", icon: "/skills/html.png", color: "bg-orange-500" },
 		{ name: "CSS", icon: "/skills/css.png", color: "bg-blue-500" },
 		{ name: "Tailwind CSS", icon: "/skills/tailwind.png", color: "bg-teal-500" },
 		{ name: "Shadcn UI", icon: "/skills/shadcn.png", color: "bg-gray-600" },
 		{ name: "Ant design", icon: "/skills/ant-design.svg", color: "bg-gray-600" },
+		{ name: "React hook form", icon: "/skills/react-hook-form.png", color: "bg-red-500" },
+		{ name: "ZOD", icon: "/skills/zod.png", color: "bg-purple-500" },
 		{ name: "Material UI", icon: "/skills/material.png", color: "bg-gray-600" },
 		{ name: "Bootstrap", icon: "/skills/bootstrap.png", color: "bg-teal-500" },
 		{ name: "Framer Motion", icon: "/skills/framer-motion.png", color: "bg-gray-600" },
@@ -122,6 +108,7 @@ export const portfolioData = {
 			color: "from-pink-500 to-rose-500"
 		}
 	],
+
 	achievements: [
 		{
 			title: "AWS Certified Developer",
@@ -208,11 +195,31 @@ export const portfolioData = {
 			],
 			liveUrl: "https://zappy-gilt.vercel.app",
 			githubUrl: "https://github.com/tausif40",
-			featured: false,
+			featured: true,
 			status: "Working"
 		},
 		{
 			id: 3,
+			title: "Helios Fintec",
+			subTitle: "financial services",
+			description:
+				"Designed and developed a modern Fintech website to display financial services, investment plans, and user insights. Integrated responsive layouts, data visualization, and secure user interface.",
+			image: "/projects/helios-fintec.png",
+			technologies: [
+				"Next.js",
+				"TypeScript",
+				"Redux Toolkit",
+				"Zod",
+				"Socket.io",
+				"ShadCN UI"
+			],
+			liveUrl: "https://helios-fintec.vercel.app/",
+			githubUrl: "https://github.com/tausif40",
+			featured: false,
+			status: "Working"
+		},
+		{
+			id: 4,
 			title: "Best Fitted Wardrobe",
 			subTitle: "Bespoke Wardrobe Design",
 			description:
@@ -224,7 +231,31 @@ export const portfolioData = {
 			featured: false
 		},
 		{
-			id: 4,
+			id: 5,
+			title: "Patel Automotive",
+			subTitle: "E-commerce",
+			description:
+				"Developed a responsive e-commerce website named Patel Automotive for showcasing and selling automotive products. Implemented product listings, cart functionality, and a user- friendly UI using modern frontend technologies.",
+			image: "/projects/patelautomotive.jpg",
+			technologies: ["React.js", "Node.js", "ExpressJS", "Mongo DB", "HTML", "CSS", "Javascript", "Tailwind CSS"],
+			liveUrl: "https://github.com/tausif40/Patel-Automotive.git",
+			githubUrl: "https://github.com/tausif40/Patel-Automotive.git",
+			featured: false
+		},
+		{
+			id: 6,
+			title: "Hadoti Satta",
+			subTitle: "Online Satta",
+			description:
+				"Built a real-time Online Satta result website with live result updates and a clean, responsive UI. Focused on fast data rendering, mobile optimization, and seamless user experience.",
+			image: "/projects/hadoti-satta.png",
+			technologies: ["React.js", "Node.js", "ExpressJS", "Mongo DB", "HTML", "CSS", "Javascript", "Tailwind CSS"],
+			liveUrl: "https://www.hadotisatta.com",
+			githubUrl: "https://github.com/tausif40",
+			featured: false
+		},
+		{
+			id: 7,
 			title: "Auro Terra Energy",
 			subTitle: "Biomass Pellets",
 			description:
@@ -236,7 +267,7 @@ export const portfolioData = {
 			featured: false
 		},
 		{
-			id: 5,
+			id: 8,
 			title: "My Portfolio",
 			subTitle: "Personal Portfolio Website",
 			description:
@@ -256,14 +287,15 @@ export const portfolioData = {
 		},
 
 	],
+
 	experience: [
 		{
-			position: "Frontend Developer",
+			position: "FullStack Developer",
 			company: "Modern Technology Pvt. Ltd.",
 			duration: "July / 2024 - Current",
 			location: "Indore, Madhya Pradesh",
 			description:
-				"Frontend Developer with 2 year of experience, working in an office environment and collaborating closely with backend developers. Proficient in React.js, Next.js, JavaScript, TypeScript, Redux, Tailwind CSS, and Socket.io. I’ve contributed to full project lifecycles from understanding client requirements and participating in team discussions to implementing UI components, managing state, and integrating APIs. Focused on writing clean, maintainable code and delivering better user experiences.",
+				"FullStack Developer with 2 year of experience, working in an office environment and collaborating with team. Proficient in React.js, Next.js, Node.js, JavaScript, TypeScript, Redux, Tailwind CSS, and Socket.io. I’ve contributed to full project lifecycles from understanding client requirements and participating in team discussions to implementing UI components, managing state, and integrating APIs. Focused on writing clean, maintainable code and delivering better user experiences.",
 			technologies: [
 				"React.js",
 				"Next.js",
@@ -280,7 +312,7 @@ export const portfolioData = {
 			duration: "Jan to july - 2024",
 			location: "Indore, Madhya Pradesh",
 			description:
-				"Worked directly with clients to understand their requirement, and turn ideas into fully functional web applications. From the first meeting to the final deployment, I handled the entire development process, design user interfaces, coding in React, Next.js, Tailwind CSS, and managing state with Redux. I focused on building clean, responsive websites and admin panels, while ensuring clear communication, and adapting to client feedback throughout the project.",
+				"Worked directly with clients to understand their requirement, and turn ideas into fully functional web applications. From the first meeting to the final deployment, I handled the entire development process, design user interfaces, coding in React, Next.js and Node.js, and managing state with Redux. I focused on building clean, responsive websites and admin panels, while ensuring clear communication, and adapting to client feedback throughout the project.",
 			technologies: [
 				"React.js",
 				"JavaScript",
@@ -297,7 +329,7 @@ export const portfolioData = {
 			duration: "6 Months",
 			location: "Indore, Madhya Pradesh",
 			description:
-				"I started my journey with a 6-month internship as a React developer, where I worked on real projects and learned the fundamentals of building modern web apps. Since then, I have continued to grow as a frontend developer, gaining hands-on experience building responsive, user-friendly interfaces using React and related technologies.",
+				"I started my journey with a 6-month internship as a React developer, where I worked on real projects and learned the fundamentals of building modern web apps. Since then, I have continued to grow as a fullstack developer, gaining hands-on experience building responsive, user-friendly interfaces using React and related technologies.",
 			technologies: [
 				"React.js",
 				"JavaScript",
@@ -309,12 +341,13 @@ export const portfolioData = {
 			]
 		}
 	],
+
 	testimonials: [
 		{
 			name: "Sarah Chen",
 			position: "Product Manager at TechCorp",
 			content:
-				"Alex consistently delivers high-quality code and has an excellent understanding of both frontend and backend technologies. A pleasure to work with!",
+				"Alex consistently delivers high-quality code and has an excellent understanding of both fullstack and backend technologies. A pleasure to work with!",
 			avatar: "/placeholder.svg?height=60&width=60"
 		},
 		{

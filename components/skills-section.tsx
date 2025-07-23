@@ -69,7 +69,7 @@ export function SkillsSection() {
   }
 
   return (
-    <section className="pt-20 pb-16 px-4 relative overflow-hidden bg-gradient-to-br from-background via-slate-50/50 to-background dark:via-slate-900/50">
+    <section className="pt-20 pb-16 md:px-4 relative overflow-hidden bg-gradient-to-br from-background via-slate-50/50 to-background dark:via-slate-900/50">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-purple-400/20 via-pink-400/20 to-red-400/20 rounded-full blur-3xl animate-float">
@@ -171,12 +171,11 @@ export function SkillsSection() {
 
           {/* Skills Constellation */}
           {/* grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 */}
-          <div className="flex m-auto justify-center max-w-5xl flex-wrap gap-6">
+          <div className="flex m-auto justify-center max-w-5xl flex-wrap gap-4 md:gap-6">
             {skills.map((skill, index) => {
-              const gradientColor = getSkillColor(skill.name, index)
               return (
                 <>
-                  <div className={`glass-morphism transition-all duration-700 text-lg pl-6 pr-8 py-2 border rounded-full flex items-center gap-4 ${skill.color}`}>
+                  <div className={`glass-morphism transition-all duration-700 sm:text-md md:text-lg pl-6 pr-8 py-2 border rounded-full flex items-center gap-4`}>
                     <img src={skill.icon} alt="" className="w-6 h-6 object-cover" />
                     <p className="min-w-max">{skill.name}</p>
                   </div>

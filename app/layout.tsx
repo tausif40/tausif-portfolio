@@ -8,14 +8,14 @@ import { Navigation } from "@/components/navigation"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tausif - Web Developer",
+  title: "Tausif - FullStack Developer",
   description:
-    "Web developer specializing in React, Next.js and Node.js. View my projects and get in touch for collaboration opportunities.",
-  keywords: ["web developer", "react", "nextjs", "typescript", "portfolio"],
+    "FullStack developer specializing in React, Next.js and Node.js. View my projects and get in touch for collaboration opportunities.",
+  keywords: ["fullstack developer", "react", "nextjs", "typescript", "node.js", "express js"],
   authors: [{ name: "Tausif" }],
   openGraph: {
-    title: "Tausif - Web Developer",
-    description: "I am a Web developer specializing in React, Next.js",
+    title: "Tausif - FullStack Developer",
+    description: "I am a fullStack developer specializing in React, Next.js",
     type: "website",
     locale: "India",
   },
