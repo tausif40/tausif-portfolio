@@ -5,8 +5,10 @@ import { ThemeToggle } from "./theme-toggle"
 import { Menu, X, Code2 } from "lucide-react"
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 
 export function Navigation() {
+  const route = useRouter();
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const [scrolled, setScrolled] = useState(false)
@@ -57,6 +59,7 @@ export function Navigation() {
   }, [lastScrollY])
 
   const scrollToSection = (href: string) => {
+    route.push('/');
     const element = document.getElementById(href.substring(1))
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })

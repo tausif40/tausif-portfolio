@@ -132,94 +132,90 @@ export default function Page() {
 			</div>
 
 			{/* Featured Projects */}
-			{
-				featuredProjects.length > 0 && (
-					<div className="px-4 mb-16">
-						<div className="max-w-7xl mx-auto">
-							<div
-								className={`${isVisible ? "animate-slide-in-bounce" : "opacity-0"}`}
-								style={{ animationDelay: "0.4s" }}
-							>
-								<h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-									<Star className="w-8 h-8 text-yellow-500 fill-current" />
-									<span className="rainbow-text">Featured Projects</span>
-								</h2>
+			{/* {featuredProjects.length > 0 && (
+				<div className="px-4 mb-16">
+					<div className="max-w-7xl mx-auto">
+						<div
+							className={`${isVisible ? "animate-slide-in-bounce" : "opacity-0"}`}
+							style={{ animationDelay: "0.4s" }}
+						>
+							<h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+								<Star className="w-8 h-8 text-yellow-500 fill-current" />
+								<span className="rainbow-text">Featured Projects</span>
+							</h2>
 
-								<div className="grid md:grid-cols-2 gap-8">
-									{featuredProjects.map((project, index) => (
-										<Card
-											key={project.id}
-											className="group glass-morphism border-0 hover:shadow-2xl transition-all duration-700 hover:scale-105 cursor-pointer overflow-hidden"
-										>
-											<div className="relative h-64 overflow-hidden">
-												<Image
-													src={project.image || "/placeholder.svg"}
-													alt={project.title}
-													fill
-													className="object-cover group-hover:scale-110 transition-transform duration-500"
-												/>
-												<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+							<div className="grid md:grid-cols-2 gap-8">
+								{featuredProjects.map((project, index) => (
+									<Card
+										key={project.id}
+										className="group glass-morphism border-0 hover:shadow-2xl transition-all duration-700 hover:scale-105 cursor-pointer overflow-hidden"
+									>
+										<div className="relative h-64 overflow-hidden">
+											<Image
+												src={project.image || "/placeholder.svg"}
+												alt={project.title}
+												fill
+												className="object-cover group-hover:scale-110 transition-transform duration-500"
+											/>
+											<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-												{/* Featured Badge */}
-												<div className="absolute top-4 left-4">
-													<Badge className="bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white border-0 animate-pulse">
-														<Star className="w-3 h-3 mr-1 fill-current" />
-														Featured
-													</Badge>
-												</div>
-
-												{/* Action Buttons */}
-												<div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500">
-													<Button
-														size="icon"
-														className="glass-morphism hover:scale-125 transition-all duration-300 w-10 h-10"
-														asChild
-													>
-														<Link href={project.liveUrl} target="_blank">
-															<ExternalLink className="w-4 h-4" />
-														</Link>
-													</Button>
-													<Button
-														size="icon"
-														className="glass-morphism hover:scale-125 transition-all duration-300 w-10 h-10"
-														asChild
-													>
-														<Link href={project.githubUrl} target="_blank">
-															<Github className="w-4 h-4" />
-														</Link>
-													</Button>
-												</div>
+											<div className="absolute top-4 left-4">
+												<Badge className="bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white border-0 animate-pulse">
+													<Star className="w-3 h-3 mr-1 fill-current" />
+													Featured
+												</Badge>
 											</div>
 
-											<CardHeader className="p-6">
-												<CardTitle className="text-2xl font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-500">
-													{project.title}
-												</CardTitle>
-												<CardDescription className="text-base leading-relaxed">{project.description}</CardDescription>
-											</CardHeader>
+											<div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500">
+												<Button
+													size="icon"
+													className="glass-morphism hover:scale-125 transition-all duration-300 w-10 h-10"
+													asChild
+												>
+													<Link href={project.liveUrl} target="_blank">
+														<ExternalLink className="w-4 h-4" />
+													</Link>
+												</Button>
+												<Button
+													size="icon"
+													className="glass-morphism hover:scale-125 transition-all duration-300 w-10 h-10"
+													asChild
+												>
+													<Link href={project.githubUrl} target="_blank">
+														<Github className="w-4 h-4" />
+													</Link>
+												</Button>
+											</div>
+										</div>
 
-											<CardContent className="px-6 pb-6">
-												<div className="flex flex-wrap gap-2">
-													{project.technologies.map((tech, techIndex) => (
-														<Badge
-															key={techIndex}
-															variant="outline"
-															className="text-xs hover:scale-110 transition-transform duration-300 cursor-pointer holographic border-0"
-															onClick={() => setSelectedTech(tech)}
-														>
-															{tech}
-														</Badge>
-													))}
-												</div>
-											</CardContent>
-										</Card>
-									))}
-								</div>
+										<CardHeader className="p-6">
+											<CardTitle className="text-2xl font-bold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-500">
+												{project.title}
+											</CardTitle>
+											<CardDescription className="text-base leading-relaxed">{project.description}</CardDescription>
+										</CardHeader>
+
+										<CardContent className="px-6 pb-6">
+											<div className="flex flex-wrap gap-2">
+												{project.technologies.map((tech, techIndex) => (
+													<Badge
+														key={techIndex}
+														variant="outline"
+														className="text-xs hover:scale-110 transition-transform duration-300 cursor-pointer holographic border-0"
+														onClick={() => setSelectedTech(tech)}
+													>
+														{tech}
+													</Badge>
+												))}
+											</div>
+										</CardContent>
+									</Card>
+								))}
 							</div>
 						</div>
 					</div>
-				)
-			}
+				</div>
+			)} */}
 
 			{/* All Projects */}
 			<div className="px-4 pb-16">
