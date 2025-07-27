@@ -290,9 +290,9 @@ export const portfolioData = {
 
 	experience: [
 		{
-			position: "FullStack Developer",
+			position: "Frontend Developer",
 			company: "Modern Technology Pvt. Ltd.",
-			duration: "July / 2024 - Current",
+			duration: "July 2024 - Current",
 			location: "Indore, Madhya Pradesh",
 			description:
 				"FullStack Developer with 2 year of experience, working in an office environment and collaborating with team. Proficient in React.js, Next.js, Node.js, JavaScript, TypeScript, Redux, Tailwind CSS, and Socket.io. I’ve contributed to full project lifecycles from understanding client requirements and participating in team discussions to implementing UI components, managing state, and integrating APIs. Focused on writing clean, maintainable code and delivering better user experiences.",
@@ -309,7 +309,7 @@ export const portfolioData = {
 		{
 			company: "Self-Employed",
 			position: "Freelance Web Developer",
-			duration: "Jan to july - 2024",
+			duration: "Jan - july 2024",
 			location: "Indore, Madhya Pradesh",
 			description:
 				"Worked directly with clients to understand their requirement, and turn ideas into fully functional web applications. From the first meeting to the final deployment, I handled the entire development process, design user interfaces, coding in React, Next.js and Node.js, and managing state with Redux. I focused on building clean, responsive websites and admin panels, while ensuring clear communication, and adapting to client feedback throughout the project.",
@@ -325,13 +325,16 @@ export const portfolioData = {
 		},
 		{
 			company: "Ypsilon IT Solutions pvt ltd",
-			position: "Internship",
-			duration: "6 Months",
+			position: " MERN Stack developer - Internship",
+			duration: "July 2023 - JAN 2024 (6 Months)",
 			location: "Indore, Madhya Pradesh",
 			description:
-				"I started my journey with a 6-month internship as a React developer, where I worked on real projects and learned the fundamentals of building modern web apps. Since then, I have continued to grow as a fullstack developer, gaining hands-on experience building responsive, user-friendly interfaces using React and related technologies.",
+				"I completed 6-month internship as a MERN Stack developer, where I worked on real projects and learned the fundamentals of building modern web apps. Since then, I have continued to grow as a fullstack developer, gaining hands-on experience building responsive, user-friendly interfaces using React and related technologies.",
 			technologies: [
 				"React.js",
+				"Node.js",
+				"MongoDB",
+				"Express.js",
 				"JavaScript",
 				"HTML",
 				"CSS",
