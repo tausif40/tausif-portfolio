@@ -309,7 +309,7 @@ export const portfolioData = {
 		{
 			company: "Self-Employed",
 			position: "Freelance Web Developer",
-			duration: "Jan - july 2024",
+			duration: "Jan - July 2024",
 			location: "Indore, Madhya Pradesh",
 			description:
 				"Worked directly with clients to understand their requirement, and turn ideas into fully functional web applications. From the first meeting to the final deployment, I handled the entire development process, design user interfaces, coding in React, Next.js and Node.js, and managing state with Redux. I focused on building clean, responsive websites and admin panels, while ensuring clear communication, and adapting to client feedback throughout the project.",
