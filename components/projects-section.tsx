@@ -17,6 +17,8 @@ import 'swiper/css/navigation';
 export function ProjectsSection() {
   const { projects } = portfolioData
   const swiperRef = useRef(null);
+  const containerRef = useRef(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
   const featuredProjects = projects.filter((project) => project.featured)
@@ -49,9 +51,10 @@ export function ProjectsSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveProject((prev) => (prev + 1) % featuredProjects.length)
-    }, 5000)
+    }, 6000)
     return () => clearInterval(interval)
   }, [featuredProjects.length])
+
 
   const handleSlideChange = () => {
     const swiper = swiperRef.current;
@@ -61,6 +64,47 @@ export function ProjectsSection() {
     setIsEnd(swiper.isEnd);
   };
 
+
+  useEffect(() => {
+    startInterval(); // Start on mount
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener("mouseenter", stopInterval);
+      container.addEventListener("mouseleave", startInterval);
+
+      container.addEventListener("mouseenter", () => {
+        console.log("Hovered: Stop auto-swap");
+        stopInterval();
+      });
+
+
+    }
+
+    return () => {
+      stopInterval();
+      if (container) {
+        container.removeEventListener("mouseenter", stopInterval);
+        container.removeEventListener("mouseleave", startInterval);
+
+        container.addEventListener("mouseleave", () => {
+          console.log("Mouse left: Start auto-swap");
+          startInterval();
+        });
+      }
+    };
+
+  }, [featuredProjects.length]);
+
+  const startInterval = () => {
+    intervalRef.current = setInterval(() => {
+      setActiveProject((prev) => (prev + 1) % featuredProjects.length);
+    }, 6000); // 6 seconds
+  };
+
+  const stopInterval = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
 
 
   // Touch handlers for swipe
@@ -107,7 +151,6 @@ export function ProjectsSection() {
   }
 
   const visibleProjects = otherProjects.slice(0, 6)
-
 
 
   return (
@@ -173,17 +216,20 @@ export function ProjectsSection() {
           >
             {/* Main Featured Project Display */}
             <div
+              id="projects"
               className="relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden glass-morphism border-0 shadow-2xl"
+              ref={containerRef}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
               {featuredProjects.map((project, index) => (
                 <div
-                  key={project.id}
+                  key={index}
                   className={`absolute inset-0 transition-all duration-1000 ${index === activeProject ? "opacity-100 scale-100" : "opacity-0 scale-95"
                     }`}
                 >
+
                   {/* Background Image */}
                   <div className="absolute inset-0">
                     <Image
@@ -219,14 +265,13 @@ export function ProjectsSection() {
                           ))}
                         </div>
                       </div>
-
                       <div className="w-full flex justify-center md:justify-start gap-3 md:gap-4 px-3 pb-10 md:pb-6">
                         <Button
                           asChild
                           size="lg"
                           className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 transition-all duration-500 hover:scale-110 text-sm md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-2xl group"
                         >
-                          <Link href={project.liveUrl} target="_blank">
+                          <Link href={featuredProjects[activeProject].liveUrl} target="_blank">
                             <Play className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 group-hover:animate-bounce" />
                             <span className="font-bold">Live Demo</span>
                           </Link>
@@ -329,7 +374,7 @@ export function ProjectsSection() {
                     const actualIndex = thumbnailIndex + i
                     return (
                       <button
-                        key={project.id}
+                        key={i}
                         onClick={() => setActiveProject(actualIndex)}
                         className={`relative w-16 h-10 md:w-24 md:h-16 rounded-md md:rounded-xl transition-all duration-500 flex-shrink-0 
                           ${actualIndex === activeProject ? "ring-2 md:ring-4 ring-purple-500" : "opacity-60 hover:opacity-100"}`}

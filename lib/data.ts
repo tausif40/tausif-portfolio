@@ -179,7 +179,7 @@ export const portfolioData = {
 			featured: true
 		},
 		{
-			id: 2,
+			id: 3,
 			title: "Zappy",
 			subTitle: "Event Management Platform",
 			description:
@@ -199,7 +199,7 @@ export const portfolioData = {
 			status: "Working"
 		},
 		{
-			id: 3,
+			id: 4,
 			title: "Helios Fintec",
 			subTitle: "financial services",
 			description:
@@ -219,7 +219,7 @@ export const portfolioData = {
 			status: "Working"
 		},
 		{
-			id: 4,
+			id: 5,
 			title: "Best Fitted Wardrobe",
 			subTitle: "Bespoke Wardrobe Design",
 			description:
@@ -231,7 +231,7 @@ export const portfolioData = {
 			featured: false
 		},
 		{
-			id: 5,
+			id: 6,
 			title: "Patel Automotive",
 			subTitle: "E-commerce",
 			description:
@@ -243,7 +243,7 @@ export const portfolioData = {
 			featured: false
 		},
 		{
-			id: 6,
+			id: 7,
 			title: "Hadoti Satta",
 			subTitle: "Online Satta",
 			description:
@@ -255,7 +255,7 @@ export const portfolioData = {
 			featured: false
 		},
 		{
-			id: 7,
+			id: 8,
 			title: "Auro Terra Energy",
 			subTitle: "Biomass Pellets",
 			description:
@@ -267,7 +267,7 @@ export const portfolioData = {
 			featured: false
 		},
 		{
-			id: 8,
+			id: 9,
 			title: "My Portfolio",
 			subTitle: "Personal Portfolio Website",
 			description:
