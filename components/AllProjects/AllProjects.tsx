@@ -83,7 +83,8 @@ export default function Page() {
 			{/* Filters */}
 			<div className="px-4 mb-12">
 				<div className="max-w-7xl mx-auto">
-					<div className={`${isVisible ? "animate-slide-in-bounce" : "opacity-0"}`} style={{ animationDelay: "0.2s" }}>
+					<div >
+						{/* className={`${isVisible ? "animate-slide-in-bounce" : "opacity-0"}`} style={{ animationDelay: "0.2s" }} */}
 						<Card className="glass-morphism border-0">
 							<div className="flex items-start gap-2 justify-end">
 								{/* Search */}
