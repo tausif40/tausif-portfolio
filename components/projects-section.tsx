@@ -51,7 +51,7 @@ export function ProjectsSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveProject((prev) => (prev + 1) % featuredProjects.length)
-    }, 6000)
+    }, 8000)
     return () => clearInterval(interval)
   }, [featuredProjects.length])
 
@@ -99,7 +99,7 @@ export function ProjectsSection() {
   const startInterval = () => {
     intervalRef.current = setInterval(() => {
       setActiveProject((prev) => (prev + 1) % featuredProjects.length);
-    }, 6000); // 6 seconds
+    }, 8000); // 6 seconds
   };
 
   const stopInterval = () => {

@@ -193,7 +193,7 @@ export const portfolioData = {
 				"Socket.io",
 				"ShadCN UI"
 			],
-			liveUrl: "https://zappy-gilt.vercel.app",
+			liveUrl: "https://zappyeventz.com",
 			githubUrl: "https://github.com/tausif40",
 			featured: true,
 			status: "Working"
@@ -295,7 +295,7 @@ export const portfolioData = {
 			duration: "July 2024 - Current",
 			location: "Indore, Madhya Pradesh",
 			description:
-				"FullStack Developer with 2 year of experience, working in an office environment and collaborating with team. Proficient in React.js, Next.js, Node.js, JavaScript, TypeScript, Redux, Tailwind CSS, and Socket.io. I’ve contributed to full project lifecycles from understanding client requirements and participating in team discussions to implementing UI components, managing state, and integrating APIs. Focused on writing clean, maintainable code and delivering better user experiences.",
+				"Currently working as a Frontend Developer, collaborating with a team in an office environment. I am Proficient in React.js, Next.js, Node.js, JavaScript, TypeScript, Redux, Tailwind CSS, and Socket.io. I have contributed to full frontend lifecycle from understanding client requirements and participating in team discussions to implementing UI components, managing state, and integrating APIs. Focused on writing clean, maintainable code and delivering better user experiences.",
 			technologies: [
 				"React.js",
 				"Next.js",
@@ -312,7 +312,7 @@ export const portfolioData = {
 			duration: "Jan - July 2024",
 			location: "Indore, Madhya Pradesh",
 			description:
-				"Worked directly with clients to understand their requirement, and turn ideas into fully functional web applications. From the first meeting to the final deployment, I handled the entire development process, design user interfaces, coding in React, Next.js and Node.js, and managing state with Redux. I focused on building clean, responsive websites and admin panels, while ensuring clear communication, and adapting to client feedback throughout the project.",
+				"Completed 3 freelance projects by working directly with clients to understand their requirements, and transform ideas into fully functional web applications. From the first meeting to the final deployment, I handled the entire development process, designing user interfaces, coding in React, Next.js and Node.js, and managing state with Redux. I focused on building clean, responsive websites and admin panels, while ensuring clear communication and adapting to client feedback throughout the project.",
 			technologies: [
 				"React.js",
 				"JavaScript",
@@ -320,16 +320,16 @@ export const portfolioData = {
 				"CSS",
 				"Tailwind CSS",
 				"Bootstrap",
-				"Jquery",
+				"jQuery",
 			]
 		},
 		{
-			company: "Ypsilon IT Solutions pvt ltd",
+			company: "Ypsilon IT Solutions Pvt. Ltd.",
 			position: " MERN Stack developer - Internship",
 			duration: "July 2023 - JAN 2024 (6 Months)",
 			location: "Indore, Madhya Pradesh",
 			description:
-				"I completed 6-month internship as a MERN Stack developer, where I worked on real projects and learned the fundamentals of building modern web apps. Since then, I have continued to grow as a fullstack developer, gaining hands-on experience building responsive, user-friendly interfaces using React and related technologies.",
+				"I completed a 6-month internship as a MERN Stack developer, where I worked on real-world projects and learned the fundamentals of building modern web applications. Since then, I have continued to grow as a full-stack developer, gaining hands-on experience building responsive UIs with React and implementing scalable backend APIs using Node.js and Express.js.",
 			technologies: [
 				"React.js",
 				"Node.js",
@@ -340,7 +340,7 @@ export const portfolioData = {
 				"CSS",
 				"Tailwind CSS",
 				"Bootstrap",
-				"Jquery"
+				"jQuery"
 			]
 		}
 	],
