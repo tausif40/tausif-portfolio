@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github, Star, ArrowLeft, Filter, Search } from "lucide-react"
+import { ExternalLink, Github, Star, ArrowLeft, Filter, Search, X } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import Link from "next/link"
@@ -103,9 +103,9 @@ export default function Page() {
 										variant="ghost"
 										size="sm"
 										onClick={clearFilters}
-										className="text-muted-foreground hover:text-primary"
+										className="absolute right-2 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-primary"
 									>
-										Clear Filters
+										<X className="w-4 h-4 text-muted-foreground" />
 									</Button>
 								)}
 							</div>
@@ -221,7 +221,8 @@ export default function Page() {
 			<div className="px-4 pb-16">
 				<div className="max-w-7xl mx-auto">
 					<div className={`${isVisible ? "animate-slide-in-bounce" : "opacity-0"}`} style={{ animationDelay: "0.6s" }}>
-						<h2 className="text-3xl font-bold mb-8 rainbow-text">All Projects ({filteredProjects.length})</h2>
+						<h2 className="text-3xl font-bold mb-8 rainbow-text">All Projects </h2>
+						{/* ({filteredProjects.length}) */}
 
 						{filteredProjects.length === 0 ? (
 							<div className="text-center py-16">
