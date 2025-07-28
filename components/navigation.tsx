@@ -5,10 +5,11 @@ import { ThemeToggle } from "./theme-toggle"
 import { Menu, X, Code2 } from "lucide-react"
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 
 export function Navigation() {
   const route = useRouter();
+  const searchParams = useSearchParams()
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const [scrolled, setScrolled] = useState(false)
@@ -25,15 +26,26 @@ export function Navigation() {
   ]
 
   useEffect(() => {
+    const sectionId = searchParams.get("scrollTo")
+    if (sectionId) {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" })
+        }, 100)
+      }
+    }
+  }, [searchParams])
+
+  useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY
       setScrolled(scrollPosition > 50)
 
-      // Show/hide nav based on scroll direction
       if (scrollPosition > lastScrollY && scrollPosition > 100) {
-        setShowNav(false) // Scrolling down
+        setShowNav(false) 
       } else {
-        setShowNav(true) // Scrolling up
+        setShowNav(true)
       }
       setLastScrollY(scrollPosition)
 
@@ -59,13 +71,19 @@ export function Navigation() {
   }, [lastScrollY])
 
   const scrollToSection = (href: string) => {
-    route.push('/');
-    const element = document.getElementById(href.substring(1))
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+    const sectionId = href.substring(1);
+
+    if (window.location.pathname !== "/") {
+      route.push(`/?scrollTo=${sectionId}`);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
+
 
   return (
     <nav
