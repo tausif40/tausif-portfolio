@@ -120,9 +120,7 @@ export function AboutSection() {
 
               <div className="space-y-4 text-md md:text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Hi there! I'm <span className="font-semibold text-foreground">{personal.name}</span>, a passionate
-                  frontend developer with over 2 years of experience creating digital solutions that make a
-                  difference.
+                  Hi there! I'm <span className="font-semibold text-foreground">{personal.name}</span>, a passionate full-stack developer with 2 years of hands-on experience building digital products that solve real-world problems.
                 </p>
 
                 <p>
