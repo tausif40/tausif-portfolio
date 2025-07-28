@@ -295,7 +295,7 @@ export const portfolioData = {
 			duration: "July 2024 - Current",
 			location: "Indore, Madhya Pradesh",
 			description:
-				"Currently working as a Frontend Developer, collaborating with a team in an office environment. I am Proficient in React.js, Next.js, Node.js, JavaScript, TypeScript, Redux, Tailwind CSS, and Socket.io. I have contributed to full frontend lifecycle from understanding client requirements and participating in team discussions to implementing UI components, managing state, and integrating APIs. Focused on writing clean, maintainable code and delivering better user experiences.",
+				"Currently working as a Frontend Developer, collaborating with a team in an office environment. Proficient in React.js, Next.js, Node.js, JavaScript, TypeScript, Redux, Tailwind CSS, and Socket.io. I have contributed to full frontend development  lifecycle from understanding client requirements and participating in team discussions to implementing UI components, managing state, and integrating APIs. Focused on writing clean, maintainable code and delivering better user experiences.",
 			technologies: [
 				"React.js",
 				"Next.js",
