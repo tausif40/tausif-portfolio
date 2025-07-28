@@ -8,7 +8,7 @@ export const portfolioData = {
 		location: "Indore, MP, India",
 		avatar: "/img/hero-img.jpg",
 		resume: "/resume.pdf",
-		bio: "FullStack developer with 2 years of experience building scalable web applications. I specialize in React.js, Next.js and Node.js, with a keen eye for user experience and performance optimization. Always write clean and maintainable code.",
+		bio: "FullStack developer with 2 years of experience building scalable web applications. I specialize in React.js, Next.js, Node.js and Express, with a keen eye for user experience and performance optimization. Always write clean and maintainable code.",
 		social: {
 			github: "https://github.com/tausif40",
 			linkedin: "https://www.linkedin.com/in/muhammad-tausif-0142692a9/",
