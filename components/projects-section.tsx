@@ -251,9 +251,9 @@ export function ProjectsSection() {
                         </Badge>
 
                         <h3 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-4">{project.title}</h3>
-                        <p className="text-base md:text-xl text-gray-200 mb-6 leading-relaxed">{project.description}</p>
+                        <p className="text-base md:text-xl text-gray-200 mb-6 leading-relaxed cursor-default">{project.description}</p>
 
-                        <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
+                        <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8 cursor-default">
                           {project.technologies.map((tech, techIndex) => (
                             <Badge
                               key={techIndex}

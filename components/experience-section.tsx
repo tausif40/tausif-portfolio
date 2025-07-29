@@ -115,7 +115,7 @@ export function ExperienceSection() {
 										<CardHeader className="relative z-10 pb-4">
 											<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 												<div className="flex-1">
-													<CardTitle className="text-xl font-semibold group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300 flex items-center gap-3 mb-2">
+													<CardTitle className="text-xl font-medium group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300 flex items-start gap-3 mb-2">
 														<Briefcase className="w-6 h-6" />
 														{exp.position}
 													</CardTitle>
