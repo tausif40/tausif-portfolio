@@ -17,9 +17,6 @@ export default function Page() {
 	const [filteredProjects, setFilteredProjects] = useState(projects)
 	const [isVisible, setIsVisible] = useState(false)
 
-	const featuredProjects = projects.filter((project) => project.featured)
-	const regularProjects = projects.filter((project) => !project.featured)
-
 	// Get all unique technologies
 	const allTechnologies = Array.from(new Set(projects.flatMap((project) => project.technologies))).sort()
 

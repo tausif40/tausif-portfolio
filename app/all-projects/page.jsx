@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import AllProjects from '@/components/AllProjects/AllProjects';
 
 function page() {
 	return (
-		<AllProjects />
+		<Suspense fallback={<div>Loading Projects...</div>}>
+			<AllProjects />
+		</Suspense>
 	)
 }
 
