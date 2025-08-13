@@ -1,16 +1,14 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { portfolioData } from "@/lib/data"
 import { useEffect, useState } from "react"
-import { Code2, Palette, Database, Cloud, Globe, Zap, Cpu, Terminal, Layers, GitBranch, Rocket, Star, Sparkles, } from "lucide-react"
+import { Sparkles, } from "lucide-react"
+import { Card, CardContent } from "./ui/card"
 
 export function SkillsSection() {
   const { skills } = portfolioData
   const [isVisible, setIsVisible] = useState(false)
-  const [activeCategory, setActiveCategory] = useState("all")
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,29 +26,6 @@ export function SkillsSection() {
     return () => observer.disconnect()
   }, [])
 
-  const skillIcons: { [key: string]: any } = {
-    React: Code2,
-    "Next.js": Rocket,
-    TypeScript: Terminal,
-    JavaScript: Terminal,
-    "redux toolkit": '',
-    "Tailwind CSS": Palette,
-    "Shadcn UI": Layers,
-    "Socket IO": Cpu,
-    HTML5: Globe,
-    CSS3: Palette,
-    Figma: Palette,
-    MongoDB: Database,
-    GraphQL: Globe,
-    Git: GitBranch,
-    Docker: Cloud,
-    AWS: Cloud,
-    Jest: Zap,
-    "Express.js": Cpu,
-    // Webpack: Cloud,
-    // Kubernetes: Cloud,
-    // Jenkins: Cloud,
-  }
 
   const getSkillColor = (skillName: string, index: number) => {
     const colors = [
@@ -84,7 +59,7 @@ export function SkillsSection() {
         {/* Floating Tech Icons */}
         {["⚛️", "🚀", "💻", "🎨", "⚡", "🔥", "✨", "🌟"].map((icon, i) => (
           <div
-            key={icon}
+            key={i}
             className="absolute text-6xl opacity-5 animate-float select-none"
             style={{
               left: `${10 + i * 12}%`,
@@ -122,60 +97,16 @@ export function SkillsSection() {
             </span>
           </p>
         </div>
-
-        {/* Central Tech Hub */}
-        {/* <div
-          className={`flex justify-center mb-14`}
-          style={{ animationDelay: "0.5s" }}
-        >
-          <div className="relative">
-            <div className="w-32 h-32 rounded-full glass-morphism flex items-center justify-center animate-neon-glow border-4 border-purple-500/30">
-              <div
-                className="w-20 h-20 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 flex items-center justify-center animate-spin shadow-2xl"
-                style={{ animationDuration: "10s" }}
-              >
-                <Code2 className="w-10 h-10 text-white" />
-              </div>
-            </div>
-            <div className="absolute -inset-8 bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-red-600/20 rounded-full blur-2xl animate-pulse"></div>
-
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-              {[0, 1, 2].map((i) => (
-                <div
-                  key={i}
-                  className="animate-orbit absolute"
-                  style={{
-                    animationDelay: `${i * 2}s`,
-                    animationDuration: `${8 + i * 2}s`,
-                  }}
-                >
-                  <div
-                    className={`w-4 h-4 rounded-full shadow-lg ${i === 0
-                      ? "bg-gradient-to-r from-pink-500 to-violet-500"
-                      : i === 1
-                        ? "bg-gradient-to-r from-cyan-500 to-blue-500"
-                        : "bg-gradient-to-r from-yellow-500 to-orange-500"
-                      }`}
-                  ></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div> */}
-
         {/* Category Filter */}
         <div
           className={`mb-16 ${isVisible ? "animate-slide-in-bounce" : "opacity-0"}`}
           style={{ animationDelay: "0.3s" }}
         >
-
-          {/* Skills Constellation */}
-          {/* grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 */}
           <div className="flex m-auto justify-center max-w-5xl flex-wrap gap-4 md:gap-6">
             {skills.map((skill, index) => {
               return (
                 <>
-                  <div className={`glass-morphism transition-all duration-700 sm:text-md md:text-lg pl-6 pr-8 py-2 border rounded-full flex items-center gap-4`}>
+                  <div key={index} className={`glass-morphism transition-all duration-700 sm:text-md md:text-lg pl-6 pr-8 py-2 border rounded-full flex items-center gap-4`}>
                     <img src={skill.icon} alt="" className="w-6 h-6 object-cover" />
                     <p className="min-w-max">{skill.name}</p>
                   </div>
@@ -183,71 +114,28 @@ export function SkillsSection() {
               )
             })}
           </div>
-
-          {/* <div
-            key={skill.name}
-            className={`relative group`}
-            style={{ animationDelay: `${0.8 + index * 0.1}s` }}
-            onMouseEnter={() => setHoveredSkill(skill.name)}
-            onMouseLeave={() => setHoveredSkill(null)}
-          >
-            <Card className="tech-card-3d glass-morphism border-0 hover:shadow-2xl transition-all duration-700 group-hover:scale-105 relative overflow-hidden">
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${gradientColor} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-              ></div>
-
-              <CardContent className="p-6 text-center relative z-10">
-                <div className="relative mb-4">
-                  <div className={`w-16 h-16 mx-auto rounded-2xl z-10`}>
-                    <Icon className={`text-${skill.color} w-14 h-14`} />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-3 h-3 bg-yellow-400 rounded-full animate-ping opacity-0 group-hover:opacity-100"></div>
-                </div>
-                <h3 className="font-semibold text-lg mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300">
-                  {skill.name}
-                </h3>
-
-                <Badge variant="outline" className="text-xs font-medium mb-2 holographic border-0">
-                  {skill.category}
-                </Badge>
-
-
-                <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
-              </CardContent>
-
-              <div className={`absolute inset-0 rounded-lg transition-opacity duration-500 bg-gradient-to-r ${gradientColor} p-[1px]`} >
-                <div className="w-full h-full bg-background rounded-lg"></div>
-              </div>
-            </Card>
-          </div> */}
-
-          {/* Interactive Stats */}
-          {/* <div
-          className={`mt-20 text-center ${isVisible ? "animate-fade-in-scale" : "opacity-0"}`}
-          style={{ animationDelay: "1.5s" }}
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {[
-              { number: `20+`, label: "Technologies", icon: "🚀" },
-              { number: "2+", label: "Years Experience", icon: "⭐" },
-              { number: "10+", label: "Projects Built", icon: "💻" },
-              { number: "∞", label: "Lines of Code", icon: "🔥" },
-            ].map((stat, index) => (
-              <div key={stat.label} className="group">
-                <Card className="glass-morphism border-0 hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <CardContent className="p-6 text-center relative z-10">
-                    <div className="text-4xl mb-2 group-hover:animate-bounce">{stat.icon}</div>
-                    <div className="text-3xl font-black rainbow-text mb-2">{stat.number}</div>
-                    <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
-          </div>
-        </div> */}
-
         </div>
+
+        {/* Call to Action */}
+        <div
+          className={`text-center mt-16 ${isVisible ? "animate-fade-in-scale" : "opacity-0"}`}
+          style={{ animationDelay: "1s" }}
+        >
+          <Card className="glass-morphism border-0 max-w-2xl mx-auto">
+            <CardContent className="p-8 text-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-purple-500/5 animate-gradient-shift" />
+
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-4 rainbow-text">Always Learning</h3>
+                <p className="text-muted-foreground">
+                  I'm constantly exploring new technologies and staying up-to-date with the latest industry trends to
+                  deliver cutting-edge solutions.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
       </div>
     </section>
   )

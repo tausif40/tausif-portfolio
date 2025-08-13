@@ -99,7 +99,7 @@ export function ProjectsSection() {
   const startInterval = () => {
     intervalRef.current = setInterval(() => {
       setActiveProject((prev) => (prev + 1) % featuredProjects.length);
-    }, 8000); // 6 seconds
+    }, 8000); // 8 seconds
   };
 
   const stopInterval = () => {
@@ -238,14 +238,14 @@ export function ProjectsSection() {
                       fill
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/80 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/20" />
                   </div>
 
                   {/* Content Overlay */}
                   <div className="absolute inset-0 flex items-end md:p-12">
                     <div className="max-w-2xl">
                       <div className="p-4">
-                        <Badge className="mb-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white border-0 animate-pulse text-sm md:text-lg px-3 md:px-4 py-1 md:py-2">
+                        <Badge className="mb-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white border-0 text-sm md:text-lg px-3 md:px-4 py-1 md:py-2">
                           <Star className="w-3 h-3 md:w-4 md:h-4 mr-2 fill-current" />
                           {project.status === "Working" ? "Working" : "Featured Project"}
                         </Badge>

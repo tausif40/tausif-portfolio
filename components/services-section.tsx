@@ -20,6 +20,7 @@ export function ServicesSection() {
       },
       { threshold: 0.1 },
     )
+    console.log(services);
 
     const element = document.getElementById("services")
     if (element) observer.observe(element)
@@ -99,13 +100,13 @@ export function ServicesSection() {
                   ))}
                 </div>
 
-                <Button
+                {/* <Button
                   variant="ghost"
                   className="w-full group-hover:bg-gradient-to-r group-hover:from-purple-500/10 group-hover:to-pink-500/10 transition-all duration-300"
                 >
                   <span>Learn More</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </Button>
+                </Button> */}
               </CardContent>
 
               {/* Floating Decoration */}

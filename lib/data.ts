@@ -11,7 +11,7 @@ export const portfolioData = {
 		bio: "FullStack developer with 2 years of experience building scalable web applications. I specialize in React.js, Next.js, Node.js and Express, with a keen eye for user experience and performance optimization. Always write clean and maintainable code.",
 		social: {
 			github: "https://github.com/tausif40",
-			linkedin: "https://www.linkedin.com/in/muhammad-tausif-0142692a9/",
+			linkedin: "https://www.linkedin.com/in/muhammad-tausif",
 			portfolio: "https://tausif.info"
 		}
 	},
@@ -42,72 +42,131 @@ export const portfolioData = {
 
 	services: [
 		{
-			title: "Web Development",
+			title: "Frontend Development",
 			description:
-				"Full-stack web applications with modern frameworks and best practices",
-			icon: "💻",
+				"Pixel-perfect, responsive interfaces with smooth interactions",
+			icon: "🖥️",
 			features: [
+				"HTML5/CSS3",
+				"JavaScript/TypeScript",
 				"React/Next.js",
-				"Node.js Backend",
-				"Database Design",
-				"API Development"
+				"Tailwind CSS",
+				"Responsive Design",
+				"Cross-Browser Compatibility",
+				"Performance Optimization",
+				"SEO-Friendly Markup"
 			],
 			color: "from-blue-500 to-cyan-500"
 		},
 		{
-			title: "Mobile Development",
-			description: "Cross-platform mobile apps with React Native and Flutter",
-			icon: "📱",
+			title: "Backend Development",
+			description:
+				"Robust server-side logic and database management for any scale",
+			icon: "🗄️",
 			features: [
-				"React Native",
-				"Flutter",
-				"iOS & Android",
-				"App Store Deployment"
+				"Node.js/Express",
+				"MongoDB & SQL Databases",
+				"REST & GraphQL APIs",
+				"Authentication & Security",
+				"Payment Gateway Integration",
+				"Scalable Architecture",
+				"Caching & Performance Tuning",
+				"Cloud Hosting & Deployment"
 			],
 			color: "from-purple-500 to-pink-500"
 		},
 		{
 			title: "UI/UX Design",
 			description:
-				"Beautiful, intuitive user interfaces that convert and engage",
+				"Beautiful, intuitive, and user-friendly interfaces that convert and engage",
 			icon: "🎨",
 			features: [
-				"Figma Design",
-				"Prototyping",
+				"Figma to HTML/CSS",
+				"Wireframing & User Flows",
 				"User Research",
-				"Design Systems"
+				"Mobile-First Approach",
+				"Accessibility (WCAG) Compliance",
+				"Interactive Animations",
+				"Brand Identity & Style Guides",
+				"Design System Implementation"
 			],
 			color: "from-green-500 to-emerald-500"
-		},
-		{
-			title: "DevOps & Cloud",
-			description: "Scalable infrastructure and deployment automation",
-			icon: "☁️",
-			features: ["AWS/Azure", "Docker", "CI/CD", "Monitoring"],
-			color: "from-orange-500 to-red-500"
-		},
-		{
-			title: "Consulting",
-			description:
-				"Technical guidance and architecture planning for your projects",
-			icon: "🧠",
-			features: [
-				"Code Review",
-				"Architecture",
-				"Performance",
-				"Best Practices"
-			],
-			color: "from-indigo-500 to-purple-500"
-		},
-		{
-			title: "E-commerce",
-			description:
-				"Complete online stores with payment integration and analytics",
-			icon: "🛒",
-			features: ["Shopify", "WooCommerce", "Payment Gateways", "Analytics"],
-			color: "from-pink-500 to-rose-500"
 		}
 	],
+
+	// services: [
+	// 	{
+	// 		title: "Web Development",
+	// 		description:
+	// 			"Full-stack web applications with modern frameworks and best practices",
+	// 		icon: "💻",
+	// 		features: [
+	// 			"React/Next.js",
+	// 			"Node.js Backend",
+	// 			"Database Design",
+	// 			"API Development"
+	// 		],
+	// 		color: "from-blue-500 to-cyan-500"
+	// 	},
+	// 	{
+	// 		title: "Mobile Development",
+	// 		description: "Cross-platform mobile apps with React Native and Flutter",
+	// 		icon: "📱",
+	// 		features: [
+	// 			"React Native",
+	// 			"Flutter",
+	// 			"iOS & Android",
+	// 			"App Store Deployment"
+	// 		],
+	// 		color: "from-purple-500 to-pink-500"
+	// 	},
+	// 	{
+	// 		title: "UI/UX Design",
+	// 		description:
+	// 			"Beautiful, intuitive user interfaces that convert and engage",
+	// 		icon: "🎨",
+	// 		features: [
+	// 			"Figma Design",
+	// 			"Prototyping",
+	// 			"User Research",
+	// 			"Design Systems"
+	// 		],
+	// 		color: "from-green-500 to-emerald-500"
+	// 	},
+	// 	{
+	// 		title: "DevOps & Cloud",
+	// 		description: "Scalable infrastructure and deployment automation",
+	// 		icon: "☁️",
+	// 		features: ["AWS/Azure", "Docker", "CI/CD", "Monitoring"],
+	// 		color: "from-orange-500 to-red-500"
+	// 	},
+	// 	{
+	// 		title: "Consulting",
+	// 		description:
+	// 			"Technical guidance and architecture planning for your projects",
+	// 		icon: "🧠",
+	// 		features: [
+	// 			"Code Review",
+	// 			"Architecture",
+	// 			"Performance",
+	// 			"Best Practices"
+	// 		],
+	// 		color: "from-orange-500 to-amber-600"
+	// 	},
+	// 	{
+	// 		title: "E-commerce",
+	// 		description:
+	// 			"Complete online stores with payment integration and analytics",
+	// 		icon: "🛒",
+	// 		features: [
+	// 			"Shopify",
+	// 			"WooCommerce",
+	// 			"Payment Gateways",
+	// 			"Analytics"
+	// 		],
+	// 		color: "from-pink-500 to-red-600"
+	// 	}
+	// ],
 
 	achievements: [
 		{
